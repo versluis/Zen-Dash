@@ -1,5 +1,5 @@
-Zen Dash
-========
+Zen Dash for WordPress
+======================
 
 Remove individual widgets from the WordPress Dashboard. Many of my clients find the sheer volume of information a bit intimidating. I wanted to create an easy to use, codeless, great looking solution to toggle the widgets users don't want so see.
 
