@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Zen Dash
- * Plugin URI: http://wpguru.co.uk
+ * Plugin URI: http://wpguru.co.uk/2013/09/introducing-zen-dash/
  * Description: Disable info boxes and declutter your dashboard with Feng Shui magic. Less is more. 
  * Version: 1.0
  * Author: Jay Versluis
@@ -230,7 +230,7 @@ function zendash () {
 echo plugins_url('images/guru-header-2013.png', __FILE__);
 ?>" width="400"></a>
 </p>
-<p><a href="http://wpguru.co.uk/2010/12/disk-space-pie-chart-plugin/" target="_blank">Plugin by Jay Versluis</a> | <a href="http://cssdeck.com/labs/css-checkbox-styles" target="_blank">CSS by Kushagara Agarwal</a> | <a href="http://wphosting.tv" target="_blank">WP Hosting</a> | <a href="http://wpguru.co.uk/say-thanks/" target="_blank">Buy me a Coffee</a> ;-)</p>
+<p><a href="http://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">Plugin by Jay Versluis</a> | <a href="http://cssdeck.com/labs/css-checkbox-styles" target="_blank">CSS by Kushagara Agarwal</a> | <a href="http://wphosting.tv" target="_blank">WP Hosting</a> | <a href="http://wpguru.co.uk/say-thanks/" target="_blank">Buy me a Coffee</a> ;-)</p>
 
 </div>
 <!-- div wrap close -->
