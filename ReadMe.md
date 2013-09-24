@@ -16,3 +16,10 @@ Installation
 1. Then: Activate the plugin through the 'Plugins' menu in WordPress
 1. Under Dashboard - Zen Dash you find an admin interface to toggle your Dashboard Widgets
 
+
+Further Reading
+===============
+
+Check out my release post about Zen Dash: http://wpguru.co.uk/2013/09/introducing-zen-dash/
+
+Zen Dash at WordPress.org: http://wordpress.org/plugins/zen-dash/
