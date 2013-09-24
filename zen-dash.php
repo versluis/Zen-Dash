@@ -43,7 +43,7 @@ add_dashboard_page('Zen Dash', 'Zen Dash', 'administrator', 'zendash', 'zendash'
 // display the admin page
 function zendash () {
 	
-//must check that the user has the required capability 
+// check that the user has the required capability 
     if (!current_user_can('manage_options'))
     {
       wp_die( __('You do not have sufficient privileges to access this page. Sorry!') );
@@ -150,8 +150,8 @@ function zendash () {
   <div id="icon-index" class="icon32"><br>
   </div>
   <h2>Zen Dash Options</h2>
-  <p>Treat yourself to some Dashboard Feng Shui and get rid of the clutter that's troubliung your mind.</p>
-  <p>Below is a list of default Dahsboard widgets. Green means the widget is active, grey means it's disabled.</p>
+  <p>Treat yourself to some Dashboard Feng Shui and get rid of the clutter that's troubling your mind.</p>
+  <p>Below is a list of default Dahsboard widgets. Note that other plugins may add widgets that Zen Dash cannot remove (yet).</p>
   <table width="75%" border="0">
     <tr>
       <td width="49%"><div class="slideThree">
@@ -217,11 +217,24 @@ function zendash () {
   </p>
 </form>
 <p>&nbsp;</p>
+<?php
+
+	////////////////////////////////////////////////////////
+	// ADMIN FOOTER CONTENT
+	////////////////////////////////////////////////////////
+?>
+
+<p><em>This plugin was brought to you by</em><br />
+<a href="http://wpguru.co.uk" target="_blank"><img src="
+<?php 
+echo plugins_url('images/guru-header-2013.png', __FILE__);
+?>" width="400"></a>
+</p>
+<p><a href="http://wpguru.co.uk/2010/12/disk-space-pie-chart-plugin/" target="_blank">Plugin by Jay Versluis</a> | <a href="http://cssdeck.com/labs/css-checkbox-styles" target="_blank">CSS by Kushagara Agarwal</a> | <a href="http://wphosting.tv" target="_blank">WP Hosting</a> | <a href="http://wpguru.co.uk/say-thanks/" target="_blank">Buy me a Coffee</a> ;-)</p>
+
 </div>
 <!-- div wrap close -->
 <?php
-	
-	
 	
 } // end of main function
 
@@ -268,16 +281,53 @@ function zendash_settings_saved () {
 	// Put a "settings updated" message on the screen ?>
 <div class="updated">
   <p><strong>
-    <?php _e('Your settings have been saved. Check out our Dashboard!', 'zendash' ); ?>
+    Your settings have been saved. Check out your Dashboard!
     </strong></p>
 </div>
 <?php
-zendash_toggle_widgets();
 } // end of settings saved
 
-function zendash_toggle_widgets() {
+
+function zendash_remove_widgets() {
 	
-	// check if a widget should be active or nor
+	// set or remove all unwanted widgets from Dashboard
+	global$wp_meta_boxes; 
+	
+	// right now
+	if (get_option ('zendash_widget1') == 'off') {
+	unset ($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+	}
+	// recent comments
+	if (get_option ('zendash_widget3') == 'off') {
+	unset ($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
+	}
+	// incoming links
+	if (get_option ('zendash_widget5') == 'off') {
+	unset ($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
+	}
+	// plugins
+	if (get_option ('zendash_widget7') == 'off') {
+	unset ($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+	}
+	// quick press
+	if (get_option ('zendash_widget2') == 'off') {
+	unset ($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
+	}
+	// recent drafts
+	if (get_option ('zendash_widget4') == 'off') {
+	unset ($wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts']);
+	}
+	// WordPress blog
+	if (get_option ('zendash_widget6') == 'off') {
+	unset ($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+	}
+	// other news
+	if (get_option ('zendash_widget8') == 'off') {
+	unset ($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+	}
 }
+
+// put this puppy into action
+add_action ('wp_dashboard_setup', 'zendash_remove_widgets');
 
 ?>
