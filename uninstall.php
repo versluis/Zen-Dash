@@ -30,7 +30,7 @@ if (!defined('WP_UNINSTALL_PLUGIN')) exit();
 	delete_option ('zendash_widget7');
 	delete_option ('zendash_widget8');
 
-// Thanks for using Snapshot Backup
+// Thanks for using Zen Sash
 // If you'd like to try again someday check out http://wpguru.co.uk where it lives and grows
 
 ?>
