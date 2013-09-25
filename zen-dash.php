@@ -32,6 +32,30 @@ add_action('admin_menu', 'wpguru_zendash');
 $zenstyles = plugins_url ('zen-styles.css', __FILE__);
 wp_enqueue_style( 'zenstyles', $zenstyles );
 
+// load jQuery tabs for our admin section
+function zendash_load_js() {
+	
+	// wp_enqueue_scripts ('jquery');
+	// wp_enqueue_scripts ('jquery-ui');
+	wp_enqueue_script ('jquery-ui-tabs');
+}
+add_action('wp_enqueue_scripts', 'zendash_load_js' );
+
+// and here's the jQuery UI Tabs script
+function zendash_tabs_script () {
+	?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+    jQuery( "#tabs" ).tabs();
+	
+	jQuery('Why does everything suck?').dialogue();
+	
+     });
+     </script>
+
+<?php
+}
+add_action( 'admin_print_scripts', 'zendash_tabs_script' );
 
 // action function for above hook
 function wpguru_zendash() {
@@ -50,7 +74,7 @@ function zendash () {
     }	
 	
 	// have we used this plugin before?
-	// zendash_used_before();
+	zendash_used_before();
 	
 	/////////////////////////////////////////////////////////////////////////////////////
 	// SAVING CHANGES
@@ -142,8 +166,9 @@ function zendash () {
 	$zendash_widget7 = get_option( 'zendash_widget7' );
 	$zendash_widget8 = get_option( 'zendash_widget8' );
 	?>
-<!-- this line is for DreamWeaver -->
+<!-- this line is for DreamWeaver - it is ignored by WordPress -->
 <link href="zen-styles.css" rel="stylesheet" type="text/css">
+
 <form name="zenform" method="post" action="">
   <input type="hidden" name="zendash_hidden" value="Y">
   <div class="wrap">
@@ -151,6 +176,27 @@ function zendash () {
   </div>
   <h2>Zen Dash Options</h2>
   <p>Treat yourself to some Dashboard Feng Shui and get rid of the clutter that's troubling your mind.</p>
+    <?php
+    // we're using jQuery UI Tabs to group our options
+    // http://jqueryui.com/tabs/#default
+	
+	//////////////////////////////////////
+	// TABS MENU
+	//////////////////////////////////////
+	
+	?>
+  <div id="tabs">
+  <ul>
+  <li><a href="#tabs-1">Dashboard Widgets</a></li>
+  <li><a href="#tabs-2">Menu Items</a></li>
+  <li><a href="#tabs-3">Something Else</a></li>
+  </ul>
+  <?php
+  //////////////////////////////////
+  // Dashboard Widgets Tab
+  //////////////////////////////////
+  ?>
+  <div id="tabs-1">
   <p>Below is a list of default Dahsboard widgets. Note that other plugins may add widgets that Zen Dash cannot remove (yet).</p>
   <table width="75%" border="0">
     <tr>
@@ -216,6 +262,16 @@ function zendash () {
     <input type="submit" name="TurnOnAll" class="button-secondary" value="Turn them all ON" />
   </p>
 </form>
+</div> <?php // closing tab 1
+		////////////////////////////
+		// Menu Items Tab
+		////////////////////////////
+		?>
+        <div id="#tabs-2">
+        This is where some other options could go - if this works.
+        </div> <!-- closing tab 2 -->
+        </div> <!-- closing tabs group -->
+
 <p>&nbsp;</p>
 <?php
 
@@ -232,10 +288,23 @@ echo plugins_url('images/guru-header-2013.png', __FILE__);
 </p>
 <p><a href="http://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">Plugin by Jay Versluis</a> | <a href="http://cssdeck.com/labs/css-checkbox-styles" target="_blank">CSS by Kushagara Agarwal</a> | <a href="http://wphosting.tv" target="_blank">WP Hosting</a> | <a href="http://wpguru.co.uk/say-thanks/" target="_blank">Buy me a Coffee</a> ;-)</p>
 
-</div>
+
+<?php
+
+	  //////////////////////////////////
+	  // TESTING EXTRAS
+	  //////////////////////////////////
+	  
+	  global $wp_meta_boxes;
+	  foreach (array_keys($wp_meta_boxes['dashboard']['normal']['core']) as $name) {
+		echo $name . '<br />';
+	  }
+	  
+	  echo 'HELLO...?';
+	?>
+    </div>
 <!-- div wrap close -->
 <?php
-	
 } // end of main function
 
 function zendash_used_before () {
@@ -329,5 +398,6 @@ function zendash_remove_widgets() {
 
 // put this puppy into action
 add_action ('wp_dashboard_setup', 'zendash_remove_widgets');
+
 
 ?>
