@@ -24,11 +24,6 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-?>
-<!-- these lines are for DreamWeaver - they are ignored by WordPress -->
-<link href="zen-styles.css" rel="stylesheet" type="text/css">
-<link href="zen-script.js" rel="script" type="script/javascript">
-<?php
 
 // Add a new submenu under DASHBOARD
 function wpguru_zendash() {
@@ -58,9 +53,7 @@ function zendash_admin_scripts ($hook) {
 // and make sure it loads with our custom script
 add_action('admin_enqueue_scripts', 'zendash_admin_scripts');
 
-// link some styles to the admin page
-$zenstyles = plugins_url ('zen-styles.css', __FILE__);
-wp_enqueue_style( 'zenstyles', $zenstyles );
+
 
 // display the admin page
 function zendash () {
@@ -70,6 +63,10 @@ function zendash () {
     {
       wp_die( __('You do not have sufficient privileges to access this page. Sorry!') );
     }	
+	
+	// link some styles to the admin page
+	$zenstyles = plugins_url ('zen-styles.css', __FILE__);
+	wp_enqueue_style( 'zenstyles', $zenstyles );
 	
 	// have we used this plugin before?
 	zendash_used_before();
