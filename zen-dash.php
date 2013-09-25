@@ -3,7 +3,7 @@
  * Plugin Name: Zen Dash
  * Plugin URI: http://wpguru.co.uk/2013/09/introducing-zen-dash/
  * Description: Disable info boxes and declutter your dashboard with Feng Shui magic. Less is more. 
- * Version: 1.0
+ * Version: 1.1
  * Author: Jay Versluis
  * Author URI: http://wpguru.co.uk
  * License: GPL2
@@ -24,45 +24,43 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+?>
+<!-- these lines are for DreamWeaver - they are ignored by WordPress -->
+<link href="zen-styles.css" rel="stylesheet" type="text/css">
+<link href="zen-script.js" rel="script" type="script/javascript">
+<?php
 
-// Hook for adding admin menu
+// Add a new submenu under DASHBOARD
+function wpguru_zendash() {
+	// using array to create admin page so we can call JS on it
+	// explained here: http://codex.wordpress.org/Function_Reference/wp_enqueue_script
+	// and here: http://pippinsplugins.com/loading-scripts-correctly-in-the-wordpress-admin/
+	global $zendash_admin_page;
+	$zendash_admin_page = add_submenu_page ('index.php', __('Zen Dash', 'zendash'), __('Zen Dash', 'zendash'), 'administrator', 'zendash', 'zendash');
+}
 add_action('admin_menu', 'wpguru_zendash');
+
+// register our JS file
+function zendash_admin_init () {
+	wp_register_script ('zendash-script', plugins_url( '/zen-script.js', __FILE__ ));
+}
+add_action ('admin_init', 'zendash_admin_init');
+
+// now load the scripts we need
+function zendash_admin_scripts ($hook) {
+	global $zendash_admin_page;
+	if ($hook != $zendash_admin_page) {
+		return;	
+	}
+	wp_enqueue_script ('jquery-ui-tabs');
+	wp_enqueue_script ('zendash-script');
+}
+// and make sure it loads with our custom script
+add_action('admin_enqueue_scripts', 'zendash_admin_scripts');
 
 // link some styles to the admin page
 $zenstyles = plugins_url ('zen-styles.css', __FILE__);
 wp_enqueue_style( 'zenstyles', $zenstyles );
-
-// load jQuery tabs for our admin section
-function zendash_load_js() {
-	
-	// wp_enqueue_scripts ('jquery');
-	// wp_enqueue_scripts ('jquery-ui');
-	wp_enqueue_script ('jquery-ui-tabs');
-}
-add_action('wp_enqueue_scripts', 'zendash_load_js' );
-
-// and here's the jQuery UI Tabs script
-function zendash_tabs_script () {
-	?>
-    <script type="text/javascript">
-    jQuery(document).ready(function($) {
-    jQuery( "#tabs" ).tabs();
-	
-	jQuery('Why does everything suck?').dialogue();
-	
-     });
-     </script>
-
-<?php
-}
-add_action( 'admin_print_scripts', 'zendash_tabs_script' );
-
-// action function for above hook
-function wpguru_zendash() {
-
-// Add a new submenu under DASHBOARD
-add_dashboard_page('Zen Dash', 'Zen Dash', 'administrator', 'zendash', 'zendash');
-}
 
 // display the admin page
 function zendash () {
@@ -166,8 +164,6 @@ function zendash () {
 	$zendash_widget7 = get_option( 'zendash_widget7' );
 	$zendash_widget8 = get_option( 'zendash_widget8' );
 	?>
-<!-- this line is for DreamWeaver - it is ignored by WordPress -->
-<link href="zen-styles.css" rel="stylesheet" type="text/css">
 
 <form name="zenform" method="post" action="">
   <input type="hidden" name="zendash_hidden" value="Y">
@@ -289,23 +285,19 @@ echo plugins_url('images/guru-header-2013.png', __FILE__);
 <p><a href="http://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">Plugin by Jay Versluis</a> | <a href="http://cssdeck.com/labs/css-checkbox-styles" target="_blank">CSS by Kushagara Agarwal</a> | <a href="http://wphosting.tv" target="_blank">WP Hosting</a> | <a href="http://wpguru.co.uk/say-thanks/" target="_blank">Buy me a Coffee</a> ;-)</p>
 
 
+</div><!-- div wrap close -->
 <?php
-
-	  //////////////////////////////////
-	  // TESTING EXTRAS
-	  //////////////////////////////////
-	  
-	  global $wp_meta_boxes;
-	  foreach (array_keys($wp_meta_boxes['dashboard']['normal']['core']) as $name) {
-		echo $name . '<br />';
-	  }
-	  
-	  echo 'HELLO...?';
-	?>
-    </div>
-<!-- div wrap close -->
-<?php
+/////////////////////////////
 } // end of main function
+/////////////////////////////
+
+
+// -------------------------
+
+
+/////////////////////////////
+// OTHER FUNCTIONS
+/////////////////////////////
 
 function zendash_used_before () {
 	
