@@ -255,14 +255,16 @@ function zendash () {
     <input type="submit" name="TurnOnAll" class="button-secondary" value="Turn them all ON" />
   </p>
 </form>
-</div> <?php // closing tab 1
-		////////////////////////////
-		// Menu Items Tab
-		////////////////////////////
-		?>
-        <div id="#tabs-2">
-        This is where some other options could go - if this works.
+</div> <!-- closing tab 1 -->
+
+        <div id="tabs-2">
+        Contents of tab 2.
         </div> <!-- closing tab 2 -->
+        
+        <div id="tabs-3">
+        Contents of Tab 3
+        </div> <!-- closing tab 3 -->
+        
         </div> <!-- closing tabs group -->
 
 <p>&nbsp;</p>
