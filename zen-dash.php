@@ -182,11 +182,12 @@ function zendash () {
 	$zendash_update3 = get_option( 'zendash_update3' );
 	
 	?>
+<link href="zen-styles.css" rel="stylesheet" type="text/css">
+
     
 
 
 <form name="zenform" method="post" action="">
-  <input type="hidden" name="zendash_hidden" value="Y">
   <div class="wrap">
   <div id="icon-index" class="icon32"><br>
   </div>
@@ -277,102 +278,81 @@ function zendash () {
     &nbsp;&nbsp;&nbsp;&nbsp;
     <input type="submit" name="TurnOnAll" class="button-secondary" value="Turn all widgets ON" />
   </p>
-</form>
 </div> <!-- closing tab 1 -->
 
         <div id="tabs-2">
           <p>This is a list of all WordPress menu items. Note that some plugins may provide their own menu items which Zen Dash cannot disable.</p>
           <p>List all 10, with on/off switches</p>
           <p>add link to this page in footer</p>
-          <table id="menu-items" width="50%" border="0">
+          <table width="100%" border="0">
             <tr>
-              <td width="50%" class="zen-label">Dashboard</td>
-              <td width="40%">
-              <div class="slideThree">
+              <td width="25%" class="zen-label">Dashboard</td>
+              <td width="25%"><div class="slideThree">
               <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
               <label for="menu1"></label>
+            </div>
+              </td>
+              <td width="25%" class="zen-label">Appearance</td>
+              <td width="25%">
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu6; ?>" id="menu6" name="menu6" <?php if ($zendash_menu6= 'off') echo 'checked' ; ?>/>
+              <label for="menu6"></label>
             </div></td>
             </tr>
             <tr>
               <td class="zen-label">Posts</td>
               <td>
               <div class="slideThree">
-              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
-              <label for="menu1"></label>
-            </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="zen-label">Media</td>
+              <input type="checkbox" value="<?php $zendash_menu2; ?>" id="menu2" name="menu2" <?php if ($zendash_menu2 != 'off') echo 'checked' ; ?>/>
+              <label for="menu2"></label>
+            </div></td>
+              <td>Plugins</td>
               <td>
               <div class="slideThree">
-              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
-              <label for="menu1"></label>
-            </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="zen-label">Pages</td>
-              <td>
-              <div class="slideThree">
-              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
-              <label for="menu1"></label>
+              <input type="checkbox" value="<?php $zendash_menu7; ?>" id="menu7" name="menu7" <?php if ($zendash_menu7 != 'off') echo 'checked' ; ?>/>
+              <label for="menu7"></label>
             </div></td>
             </tr>
             <tr>
-              <td class="zen-label">Comments</td>
+              <td>Media</td>
               <td>
               <div class="slideThree">
-              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
-              <label for="menu1"></label>
+              <input type="checkbox" value="<?php $zendash_menu3; ?>" id="menu3" name="menu3" <?php if ($zendash_menu3 != 'off') echo 'checked' ; ?>/>
+              <label for="menu3"></label>
+            </div></td>
+              <td>Users</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu8; ?>" id="menu8" name="menu8" <?php if ($zendash_menu8 != 'off') echo 'checked' ; ?>/>
+              <label for="menu8"></label>
             </div></td>
             </tr>
             <tr>
-              <td class="zen-label">Appearance</td>
+              <td>Pages</td>
               <td>
               <div class="slideThree">
-              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
-              <label for="menu1"></label>
+              <input type="checkbox" value="<?php $zendash_menu4; ?>" id="menu4" name="menu4" <?php if ($zendash_menu4 != 'off') echo 'checked' ; ?>/>
+              <label for="menu4"></label>
+            </div></td>
+              <td>Tools</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu9; ?>" id="menu9" name="menu9" <?php if ($zendash_menu9 != 'off') echo 'checked' ; ?>/>
+              <label for="menu9"></label>
             </div></td>
             </tr>
             <tr>
-              <td class="zen-label">Plugins</td>
+              <td>Comments</td>
               <td>
               <div class="slideThree">
-              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
-              <label for="menu1"></label>
+              <input type="checkbox" value="<?php $zendash_menu5; ?>" id="menu5" name="menu5" <?php if ($zendash_menu5 != 'off') echo 'checked' ; ?>/>
+              <label for="menu5"></label>
             </div></td>
-            </tr>
-            <tr>
-              <td class="zen-label">Users</td>
+              <td>Settings</td>
               <td>
               <div class="slideThree">
-              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
-              <label for="menu1"></label>
-            </div></td>
-            </tr>
-            <tr>
-              <td class="zen-label">Tools</td>
-              <td>
-              <div class="slideThree">
-              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
-              <label for="menu1"></label>
-            </div></td>
-            </tr>
-            <tr>
-              <td class="zen-label">Settings</td>
-              <td>
-              <div class="slideThree">
-              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
-              <label for="menu1"></label>
-            </div></td>
-            </tr>
-            <tr>
-              <td class="zen-label">Links</td>
-              <td>
-              <div class="slideThree">
-              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
-              <label for="menu1"></label>
+              <input type="checkbox" value="<?php $zendash_menu10; ?>" id="menu10" name="menu10" <?php if ($zendash_menu10 != 'off') echo 'checked' ; ?>/>
+              <label for="menu10"></label>
             </div></td>
             </tr>
           </table>
@@ -385,7 +365,7 @@ function zendash () {
         Switch off WordPress update notifications for core, themes and plugins</div> <!-- closing tab 3 -->
         
 </div> <!-- closing tabs group -->
-
+</form> <!-- end of form -->
 <p>&nbsp;</p>
 <?php
 

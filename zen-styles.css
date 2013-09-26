@@ -13,11 +13,6 @@
 	margin-left: 150px;
 }
 
-.zen-label {
-	font-weight: bold;
-	font-size: 1.2em;
-	text-align: center;
-}
 .save-button-wrap {
 	text-align: center;
 }
@@ -28,6 +23,9 @@ td {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	font-weight: bold;
+	font-size: 1.2em;
+	text-align: center;
 	}
 table {
 	border-spacing: 10px;
