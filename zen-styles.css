@@ -1,4 +1,4 @@
-
+/* CSS Document */
 /* ZEN Styles   
    Zen Dash Plugin by Jay Versluis
    */
@@ -6,7 +6,6 @@
 .left-block {
 	float: left;
 	margin-left: 50px;
-	
 }
 
 .right-block {
@@ -18,9 +17,21 @@
 	font-weight: bold;
 	font-size: 1.2em;
 	text-align: center;
-
+}
+.save-button-wrap {
+	text-align: center;
 }
 
+/* styling the table */
+td {
+	background-color:#ddd;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	}
+table {
+	border-spacing: 10px;
+}
 
 /* lovely checkbox styling courtesy of CSS Deck
 http://cssdeck.com/labs/css-checkbox-styles */

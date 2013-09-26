@@ -182,7 +182,7 @@ function zendash () {
   <ul>
   <li><a href="#tabs-1">Dashboard Widgets</a></li>
   <li><a href="#tabs-2">Menu Items</a></li>
-  <li><a href="#tabs-3">Something Else</a></li>
+  <li><a href="#tabs-3">Update Notifications</a></li>
   </ul>
   <?php
   //////////////////////////////////
@@ -190,15 +190,16 @@ function zendash () {
   //////////////////////////////////
   ?>
   <div id="tabs-1">
-  <p>Below is a list of default Dahsboard widgets. Note that other plugins may add widgets that Zen Dash cannot remove (yet).</p>
-  <table width="75%" border="0">
+  <p>Below is a list of default Dahsboard widgets. <br />
+  Note that themes and plugins may add other widgets which Zen Dash cannot remove (yet).</p>
+  <table align="center" width="85%" border="0">
     <tr>
-      <td width="49%"><div class="slideThree">
+      <td width="50%"><div class="slideThree">
           <input type="checkbox" id="right-now" name="widget1" <?php if ($zendash_widget1 == 'on') echo 'checked' ; ?>/>
           <label for="right-now"></label>
         </div>
         <p class="zen-label">Right Now </p></td>
-      <td width="51%"><div class="slideThree">
+      <td width="50%"><div class="slideThree">
           <input type="checkbox" value="<?php $zendash_widget2; ?>" id="quick-press" name="widget2" <?php if ($zendash_widget2 != 'off') echo 'checked' ; ?>/>
           <label for="quick-press"></label>
         </div>
@@ -247,7 +248,7 @@ function zendash () {
     </tr>
   </table>
   <p>&nbsp; </p>
-  <p>
+  <p class="save-button-wrap">
     <input type="submit" name="SaveChanges" class="button-primary" value="Save Changes" />
     &nbsp;&nbsp;&nbsp;&nbsp;
     <input type="submit" name="TurnOffAll" class="button-secondary" value="Turn them all OFF" />
@@ -258,14 +259,16 @@ function zendash () {
 </div> <!-- closing tab 1 -->
 
         <div id="tabs-2">
-        Contents of tab 2.
-        </div> <!-- closing tab 2 -->
+          <p>This is a list of all WordPress menu items. Note that some plugins may provide their own menu items which Zen Dash cannot disable.</p>
+          <p>List all 10, with on/off switches</p>
+          <p>add link to this page in footer</p>
+        </div> 
+        <!-- closing tab 2 -->
         
-        <div id="tabs-3">
-        Contents of Tab 3
-        </div> <!-- closing tab 3 -->
+<div id="tabs-3">
+        Switch off WordPress update notifications for core, themes and plugins</div> <!-- closing tab 3 -->
         
-        </div> <!-- closing tabs group -->
+</div> <!-- closing tabs group -->
 
 <p>&nbsp;</p>
 <?php
