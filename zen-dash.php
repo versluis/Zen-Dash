@@ -206,6 +206,18 @@ function zendash () {
 		 zendash_settings_saved();
 	 } // end turn on all
 	 
+	 // has the user pressed "turn off all updates"?
+	 if (isset($_POST['TurnOffAllUpdates'])) {
+		 zendash_turnoff_all_updates();
+		 zendash_settings_saved();
+	 } // end turn off all
+	 
+	 // has the user pressed "turn on all updates"?
+	 if (isset($_POST['TurnOnAllUpdates'])) {
+		 zendash_turnon_all_updates();
+		 zendash_settings_saved();
+	 } // end turn on all
+	 
 	
 	
 	////////////////////////////////////////////////////////
@@ -427,9 +439,43 @@ function zendash () {
           </p>
 </div> <!-- closing tab 2 -->
         
-<div id="tabs-3">
-        Switch off WordPress update notifications for core, themes and plugins</div> <!-- closing tab 3 -->
-        
+        <div id="tabs-3">
+        <p>Switch off WordPress update notifications for core, themes and plugins</p>
+        <table width="100%" border="0">
+          <tr>
+            <td width="50%">WordPress Core Update Alerts</td>
+            <td width="50%">
+            <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_update1; ?>" id="update1" name="update1" <?php if ($zendash_update1 != 'off') echo 'checked' ; ?>/>
+              <label for="update1"></label>
+            </div></td>
+          </tr>
+          <tr>
+            <td>Theme Update Alerts</td>
+            <td>
+            <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_update2; ?>" id="update2" name="update2" <?php if ($zendash_update2 != 'off') echo 'checked' ; ?>/>
+              <label for="update2"></label>
+            </div></td>
+          </tr>
+          <tr>
+            <td>Plugin Updates Alerts</td>
+            <td><div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_update3; ?>" id="update3" name="update3" <?php if ($zendash_update3 != 'off') echo 'checked' ; ?>/>
+              <label for="update3"></label>
+            </div></td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <p class="save-button-wrap">
+        <input type="submit" name="SaveChanges" class="button-primary" value="Save Changes" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="TurnOffAllUpdates" class="button-secondary" value="Turn all notifications OFF" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="TurnOnAllUpdates" class="button-secondary" value="Turn all notifications ON" />
+        </p>
+    </div> <!-- closing tab 3 -->
+       
 </div> <!-- closing tabs group -->
 </form> <!-- end of form -->
 <p>&nbsp;</p>
