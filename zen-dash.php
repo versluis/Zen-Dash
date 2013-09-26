@@ -378,7 +378,7 @@ function zendash () {
 <a href="http://wpguru.co.uk" target="_blank"><img src="
 <?php 
 echo plugins_url('images/guru-header-2013.png', __FILE__);
-?>" width="400"></a>
+?>" width="300"></a>
 </p>
 <p><a href="http://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">Plugin by Jay Versluis</a> | <a href="http://cssdeck.com/labs/css-checkbox-styles" target="_blank">CSS by Kushagara Agarwal</a> | <a href="http://wphosting.tv" target="_blank">WP Hosting</a> | <a href="http://wpguru.co.uk/say-thanks/" target="_blank">Buy me a Coffee</a> ;-)</p>
 
