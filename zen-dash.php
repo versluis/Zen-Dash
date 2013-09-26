@@ -79,6 +79,7 @@ function zendash () {
 	if( isset($_POST[ 'SaveChanges' ])) {
 	
 	// check each checkbox and update values in our database
+	// widgets
     if (isset ($_POST[ 'widget1' ])) {
         update_option ('zendash_widget1', 'on');
 	} else {
@@ -127,17 +128,79 @@ function zendash () {
 		update_option ('zendash_widget8', 'off');	
 		}
 		
+		// menu items
+		if (isset ($_POST[ 'menu1' ])) {
+        update_option ('zendash_menu1', 'on');
+	} else {
+		update_option ('zendash_menu1', 'off');	
+		}
+		
+		if (isset ($_POST[ 'menu2' ])) {
+        update_option ('zendash_menu2', 'on');
+	} else {
+		update_option ('zendash_menu2', 'off');	
+		}
+		
+		if (isset ($_POST[ 'menu3' ])) {
+        update_option ('zendash_menu3', 'on');
+	} else {
+		update_option ('zendash_menu3', 'off');	
+		}
+		
+		if (isset ($_POST[ 'menu4' ])) {
+        update_option ('zendash_menu4', 'on');
+	} else {
+		update_option ('zendash_menu4', 'off');	
+		}
+		
+		if (isset ($_POST[ 'menu5' ])) {
+        update_option ('zendash_menu5', 'on');
+	} else {
+		update_option ('zendash_menu5', 'off');	
+		}
+		
+		if (isset ($_POST[ 'menu6' ])) {
+        update_option ('zendash_menu6', 'on');
+	} else {
+		update_option ('zendash_menu6', 'off');	
+		}
+		
+		if (isset ($_POST[ 'menu7' ])) {
+        update_option ('zendash_menu7', 'on');
+	} else {
+		update_option ('zendash_menu7', 'off');	
+		}
+		
+		if (isset ($_POST[ 'menu8' ])) {
+        update_option ('zendash_menu8', 'on');
+	} else {
+		update_option ('zendash_menu8', 'off');	
+		}
+		
+		if (isset ($_POST[ 'menu9' ])) {
+        update_option ('zendash_menu9', 'on');
+	} else {
+		update_option ('zendash_menu9', 'off');	
+		}
+		
+		if (isset ($_POST[ 'menu10' ])) {
+        update_option ('zendash_menu10', 'on');
+	} else {
+		update_option ('zendash_menu10', 'off');	
+		}
+		
+		// print a "saved" message on screen
 		zendash_settings_saved();
      } // end of save changes
 	 
-	
-	 // has the user pressed "turn off all"?
+	 
+	 // has the user pressed "turn off all widgets"?
 	 if (isset($_POST['TurnOffAll'])) {
 		 zendash_turnoff_all_widgets();
 		 zendash_settings_saved();
 	 } // end turn off all
 	 
-	 // has the user pressed "turn on all"?
+	 // has the user pressed "turn on all widgets"?
 	 if (isset($_POST['TurnOnAll'])) {
 		 zendash_turnon_all_widgets();
 		 zendash_settings_saved();
@@ -357,9 +420,10 @@ function zendash () {
             </tr>
           </table>
           <p>&nbsp;</p>
-          <p>&nbsp;</p>
-        </div> 
-        <!-- closing tab 2 -->
+          <p class="save-button-wrap">
+          <input type="submit" name="SaveChanges" class="button-primary" value="Save Changes" />
+          </p>
+</div> <!-- closing tab 2 -->
         
 <div id="tabs-3">
         Switch off WordPress update notifications for core, themes and plugins</div> <!-- closing tab 3 -->
@@ -486,6 +550,7 @@ function zendash_settings_saved () {
 
 function zendash_remove_widgets() {
 	
+	/////////////////////////////////////////////////////
 	// set or remove all unwanted widgets from Dashboard
 	global$wp_meta_boxes; 
 	
@@ -521,6 +586,9 @@ function zendash_remove_widgets() {
 	if (get_option ('zendash_widget8') == 'off') {
 	unset ($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
 	}
+	
+	///////////////////////////
+	// set or remove menu items
 }
 
 // put this puppy into action
