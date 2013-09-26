@@ -539,7 +539,8 @@ function zendash_settings_saved () {
 	// Put a "settings updated" message on the screen ?>
 <div class="updated">
   <p><strong>
-    Your settings have been saved. Check out your Dashboard!
+    Your settings have been saved. Check out your Dashboard!<br />
+    Please note: Menu Item will update after you refersh this page.
     </strong></p>
 </div>
 <?php
@@ -584,6 +585,10 @@ function zendash_remove_widgets() {
 	if (get_option ('zendash_widget8') == 'off') {
 	unset ($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
 	}
+}
+add_action ('wp_dashboard_setup', 'zendash_remove_widgets' );
+
+function zendash_remove_menu_items () {
 	
 	///////////////////////////
 	// set or remove menu items
@@ -627,13 +632,6 @@ function zendash_remove_widgets() {
 	if (get_option ('zendash_menu10') == 'off') {
 	remove_menu_page('options-general.php');
 	}
-	
-	// remove_menu_page('edit.php');
-	
 }
-
-// put this puppy into action
-add_action ('wp_dashboard_setup', 'zendash_remove_widgets' );
-
-
+add_action ('admin_menu', 'zendash_remove_menu_items', 999);
 ?>
