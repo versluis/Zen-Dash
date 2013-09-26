@@ -33,6 +33,11 @@ table {
 	border-spacing: 10px;
 }
 
+#menu-items, #menu--items td, #menu-items th {
+	border-collapse:collapse;
+	padding: 0px;
+}
+
 /* lovely checkbox styling courtesy of CSS Deck
 http://cssdeck.com/labs/css-checkbox-styles */
 

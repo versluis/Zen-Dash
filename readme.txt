@@ -1,14 +1,14 @@
 === Zen Dash ===
 Contributors: versluis
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=34B76TPRWMWAE
-Tags: dashboard widgets, zen, remove, clutter
-Requires at least: 3.0
+Tags: dashboard widgets, zen, remove, disable, clutter, update notifications, menu item
+Requires at least: 3.3
 Tested up to: 3.6.1
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Disable info boxes and declutter your dashboard with Feng Shui magic. Less is more. 
+Disable dashboard widgets, menu items and update notifications. Declutter your dashboard with Feng Shui magic. Less is more. 
 
 == Description ==
 
@@ -30,15 +30,38 @@ Special thanks to Kushagara Agarwal for the wonderful CSS.
 == Frequently Asked Questions ==
 
 = How to I use this plugin? =
-Simply activate it, then head over to Dashboard - Zen Dash where an admin interface is waiting for you. Use the sliders to activate or deactivate a widget, then hit "Save Changes".
+Simply activate it, then head over to Dashboard - Zen Dash where an admin interface is waiting for you. Use the sliders to activate or deactivate an, then hit "Save Changes".
 You can also choose to enable or disable all widgets at once.
+
+= HELP! I've disabled the Dashboard Menu Item, and now I can't access Zen Dash options to bring it back! =
+You can access the Zen Dash options by hovering over the Admin Toolbar.
+
+= Can I still access removed Menu Items? =
+Yes. Zen Dash only hides them, but if you know the direct URL you can still call it. 
+For example, to access the Dashboard, you can still navigate to yourdomain.com/wp-admin/index.php
+
+= Can I still update WordPress Core / Themes / Plugins with disabled notifications? =
+Yes indeed. Zen Dash only hides the notifications at the top, not the fact that an update is available.
+Simply head over to Dashboard - Updates and check if and when you want.
+
+= What's the Link Manager Menu Item? I've never seen it before. =
+The Link Manager was a WordPress default menu item that has been hidden by default since WordPress 3.5.
+You can read more about the Links Manager here: http://codex.wordpress.org/Links_Manager
+
 
 == Screenshots ==
 
-1. the Admin Interface (under Dashboard - Zen Dash)
-
+1. disable the default WordPress widgets selectively (under Dashboard - Zen Dash)
+2. disable Menu Items you don't want to see
+3. disable Update Notifications
 
 == Changelog ==
+
+= 1.1 =
+added options to remove Menu Items
+added options to remove Update Notifications
+added shortcut to Zen Dash options in Admin Toolbar
+modified presentation and option tabs
 
 = 1.0 =
 Initial Release

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Zen Dash
  * Plugin URI: http://wpguru.co.uk/2013/09/introducing-zen-dash/
- * Description: Disable info boxes and declutter your dashboard with Feng Shui magic. Less is more. 
+ * Description: Disable dashbaord widgets, menu items and update notifications. Declutter your admin area with Feng Shui magic. Less is more. 
  * Version: 1.1
  * Author: Jay Versluis
  * Author URI: http://wpguru.co.uk
@@ -72,7 +72,7 @@ function zendash () {
 	zendash_used_before();
 	
 	/////////////////////////////////////////////////////////////////////////////////////
-	// SAVING CHANGES
+	// SAVING CHANGES - Widgets
 	/////////////////////////////////////////////////////////////////////////////////////
 	
 	// has the user pressed "save changes"?
@@ -133,13 +133,13 @@ function zendash () {
 	
 	 // has the user pressed "turn off all"?
 	 if (isset($_POST['TurnOffAll'])) {
-		 zendash_turnoff_all();
+		 zendash_turnoff_all_widgets();
 		 zendash_settings_saved();
 	 } // end turn off all
 	 
 	 // has the user pressed "turn on all"?
 	 if (isset($_POST['TurnOnAll'])) {
-		 zendash_turnon_all();
+		 zendash_turnon_all_widgets();
 		 zendash_settings_saved();
 	 } // end turn on all
 	 
@@ -152,6 +152,8 @@ function zendash () {
 	// display checkboxes for each widget to be killed
 	
 	// read in database options
+	
+	// widgets
     $zendash_widget1 = get_option( 'zendash_widget1' );
 	$zendash_widget2 = get_option( 'zendash_widget2' );
 	$zendash_widget3 = get_option( 'zendash_widget3' );
@@ -160,7 +162,28 @@ function zendash () {
 	$zendash_widget6 = get_option( 'zendash_widget6' );
 	$zendash_widget7 = get_option( 'zendash_widget7' );
 	$zendash_widget8 = get_option( 'zendash_widget8' );
+	
+	// menu items
+	$zendash_menu1 = get_option( 'zendash_menu1' );
+	$zendash_menu2 = get_option( 'zendash_menu2' );
+	$zendash_menu3 = get_option( 'zendash_menu3' );
+	$zendash_menu4 = get_option( 'zendash_menu4' );
+	$zendash_menu5 = get_option( 'zendash_menu5' );
+	$zendash_menu6 = get_option( 'zendash_menu6' );
+	$zendash_menu7 = get_option( 'zendash_menu7' );
+	$zendash_menu8 = get_option( 'zendash_menu8' );
+	$zendash_menu9 = get_option( 'zendash_menu9' );
+	$zendash_menu10 = get_option( 'zendash_menu10' );
+	$zendash_menu11 = get_option( 'zendash_menu11' );
+	
+	// update notifications
+	$zendash_update1 = get_option( 'zendash_update1' );
+	$zendash_update2 = get_option( 'zendash_update2' );
+	$zendash_update3 = get_option( 'zendash_update3' );
+	
 	?>
+    
+
 
 <form name="zenform" method="post" action="">
   <input type="hidden" name="zendash_hidden" value="Y">
@@ -192,7 +215,7 @@ function zendash () {
   <div id="tabs-1">
   <p>Below is a list of default Dahsboard widgets. <br />
   Note that themes and plugins may add other widgets which Zen Dash cannot remove (yet).</p>
-  <table align="center" width="85%" border="0">
+  <table id="widgets" align="center" width="85%" border="0">
     <tr>
       <td width="50%"><div class="slideThree">
           <input type="checkbox" id="right-now" name="widget1" <?php if ($zendash_widget1 == 'on') echo 'checked' ; ?>/>
@@ -229,14 +252,13 @@ function zendash () {
         </div>
         <p class="zen-label">WordPress Blog</p></td>
     </tr>
+    
     <tr>
       <td><div class="slideThree">
           <input type="checkbox" value="<?php $zendash_widget7; ?>" id="plugins" name="widget7" <?php if ($zendash_widget7 != 'off') echo 'checked' ; ?>/>
           <label for="plugins"></label>
         </div>
         <p class="zen-label">Plugins</p>
-      </div>
-    
       </td>
     
     
@@ -251,9 +273,9 @@ function zendash () {
   <p class="save-button-wrap">
     <input type="submit" name="SaveChanges" class="button-primary" value="Save Changes" />
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="submit" name="TurnOffAll" class="button-secondary" value="Turn them all OFF" />
+    <input type="submit" name="TurnOffAll" class="button-secondary" value="Turn all widgets OFF" />
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="submit" name="TurnOnAll" class="button-secondary" value="Turn them all ON" />
+    <input type="submit" name="TurnOnAll" class="button-secondary" value="Turn all widgets ON" />
   </p>
 </form>
 </div> <!-- closing tab 1 -->
@@ -262,6 +284,100 @@ function zendash () {
           <p>This is a list of all WordPress menu items. Note that some plugins may provide their own menu items which Zen Dash cannot disable.</p>
           <p>List all 10, with on/off switches</p>
           <p>add link to this page in footer</p>
+          <table id="menu-items" width="50%" border="0">
+            <tr>
+              <td width="50%" class="zen-label">Dashboard</td>
+              <td width="40%">
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
+              <label for="menu1"></label>
+            </div></td>
+            </tr>
+            <tr>
+              <td class="zen-label">Posts</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
+              <label for="menu1"></label>
+            </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="zen-label">Media</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
+              <label for="menu1"></label>
+            </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="zen-label">Pages</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
+              <label for="menu1"></label>
+            </div></td>
+            </tr>
+            <tr>
+              <td class="zen-label">Comments</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
+              <label for="menu1"></label>
+            </div></td>
+            </tr>
+            <tr>
+              <td class="zen-label">Appearance</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
+              <label for="menu1"></label>
+            </div></td>
+            </tr>
+            <tr>
+              <td class="zen-label">Plugins</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
+              <label for="menu1"></label>
+            </div></td>
+            </tr>
+            <tr>
+              <td class="zen-label">Users</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
+              <label for="menu1"></label>
+            </div></td>
+            </tr>
+            <tr>
+              <td class="zen-label">Tools</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
+              <label for="menu1"></label>
+            </div></td>
+            </tr>
+            <tr>
+              <td class="zen-label">Settings</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
+              <label for="menu1"></label>
+            </div></td>
+            </tr>
+            <tr>
+              <td class="zen-label">Links</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu1; ?>" id="menu1" name="menu1" <?php if ($zendash_menu1 != 'off') echo 'checked' ; ?>/>
+              <label for="menu1"></label>
+            </div></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
         </div> 
         <!-- closing tab 2 -->
         
@@ -303,15 +419,20 @@ echo plugins_url('images/guru-header-2013.png', __FILE__);
 
 function zendash_used_before () {
 	
-	// checks if we have values in the database - if not, we'll create them
-	$zendash_test = get_option('zendash_widget1');
-	if ($zendash_test == '') {
-	zendash_turnon_all();
+	// @since 1.1
+	// if we don't have a version number, switch on everything
+	$zendash_version = get_option ('zendash_version');
+	if ($zendash_version == '') {
+		update_option ('zendash_version', '1.1');
+		zendash_turnon_all_widgets ();
+		zendash_turnon_all_menus ();
+		zendash_turnon_all_updates ();
 	}
+		
 	
 } // end of zendash_used_before
 
-function zendash_turnon_all () {
+function zendash_turnon_all_widgets () {
 	
 	// set all values to ON
 	update_option ( 'zendash_widget1', 'on' );
@@ -325,7 +446,7 @@ function zendash_turnon_all () {
 	
 } // end of turnon_all
 
-function zendash_turnoff_all () {
+function zendash_turnoff_all_widgets () {
 	
 	// set all values to OFF
 	update_option ( 'zendash_widget1', 'off' );
@@ -338,6 +459,38 @@ function zendash_turnoff_all () {
 	update_option ( 'zendash_widget8', 'off' );	
 
 } // end of turnoff_all
+
+function zendash_turnon_all_menus () {
+	
+	// turns on all menu items
+	update_option( 'zendash_menu1', 'on' );
+	update_option( 'zendash_menu2', 'on' );
+	update_option( 'zendash_menu3', 'on' );
+	update_option( 'zendash_menu4', 'on' );
+	update_option( 'zendash_menu5', 'on' );
+	update_option( 'zendash_menu6', 'on' );
+	update_option( 'zendash_menu7', 'on' );
+	update_option( 'zendash_menu8', 'on' );
+	update_option( 'zendash_menu9', 'on' );
+	update_option( 'zendash_menu10', 'on' );
+	update_option( 'zendash_menu11', 'on' );
+}
+
+function zendash_turnon_all_updates () {
+	
+	// turns on all update notifications
+	update_option( 'zendash_update1', 'on' );
+	update_option( 'zendash_update2', 'on' );
+	update_option( 'zendash_update3', 'on' );
+}
+
+function zendash_turnoff_all_updates () {
+		
+	// turns on all update notifications
+	update_option( 'zendash_update1', 'off' );
+	update_option( 'zendash_update2', 'off' );
+	update_option( 'zendash_update3', 'off' );
+}
 
 function zendash_settings_saved () {
 	
