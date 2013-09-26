@@ -245,8 +245,6 @@ function zendash () {
 	$zendash_update3 = get_option( 'zendash_update3' );
 	
 	?>
-<link href="zen-styles.css" rel="stylesheet" type="text/css">
-
     
 
 
@@ -444,7 +442,7 @@ function zendash () {
 echo plugins_url('images/guru-header-2013.png', __FILE__);
 ?>" width="300"></a>
 </p>
-<p><a href="http://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">Plugin by Jay Versluis</a> | <a href="http://cssdeck.com/labs/css-checkbox-styles" target="_blank">CSS by Kushagara Agarwal</a> | <a href="http://wphosting.tv" target="_blank">WP Hosting</a> | <a href="http://wpguru.co.uk/say-thanks/" target="_blank">Buy me a Coffee</a> ;-)</p>
+<p><a href="http://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">Plugin by Jay Versluis</a> | <a href="http://cssdeck.com/labs/css-checkbox-styles" target="_blank">Switches by Kushagara Agarwal</a> | <a href="http://wphosting.tv" target="_blank">WP Hosting</a> | <a href="http://wpguru.co.uk/say-thanks/" target="_blank">Buy me a Coffee</a> ;-)</p>
 
 
 </div><!-- div wrap close -->
@@ -589,10 +587,53 @@ function zendash_remove_widgets() {
 	
 	///////////////////////////
 	// set or remove menu items
+	// Dashboard
+	if (get_option ('zendash_menu1') == 'off') {
+	remove_menu_page('index.php');
+	}
+	// Posts
+	if (get_option ('zendash_menu2') == 'off') {
+	remove_menu_page('edit.php');
+	}
+	// Media
+	if (get_option ('zendash_menu3') == 'off') {
+	remove_menu_page('upload.php');
+	}
+	// Pages
+	if (get_option ('zendash_menu4') == 'off') {
+	remove_menu_page('edit.php?post_type=page');
+	}
+	// Comments
+	if (get_option ('zendash_menu5') == 'off') {
+	remove_menu_page('edit-comments.php');
+	}
+	// Appearamce
+	if (get_option ('zendash_menu6') == 'off') {
+	remove_menu_page('themes.php');
+	}
+	// Plugins
+	if (get_option ('zendash_menu7') == 'off') {
+	remove_menu_page('plugins.php');
+	}
+	// Users
+	if (get_option ('zendash_menu8') == 'off') {
+	remove_menu_page('users.php');
+	}
+	// Tools
+	if (get_option ('zendash_menu9') == 'off') {
+	remove_menu_page('tools.php');
+	}
+	// Settings
+	if (get_option ('zendash_menu10') == 'off') {
+	remove_menu_page('options-general.php');
+	}
+	
+	// remove_menu_page('edit.php');
+	
 }
 
 // put this puppy into action
-add_action ('wp_dashboard_setup', 'zendash_remove_widgets');
+add_action ('wp_dashboard_setup', 'zendash_remove_widgets' );
 
 
 ?>
