@@ -265,6 +265,7 @@ function zendash () {
 	?>
   <div id="tabs">
   <ul>
+  <li><a href="#tabs-0">How it works</a></li>
   <li><a href="#tabs-1">Dashboard Widgets</a></li>
   <li><a href="#tabs-2">Menu Items</a></li>
   <li><a href="#tabs-3">Update Notifications</a></li>
@@ -274,6 +275,9 @@ function zendash () {
   // Dashboard Widgets Tab
   //////////////////////////////////
   ?>
+  <div id="tabs-0">
+  <p>Describe here how the plugin works, perhaps add a nice picture of tranquility.</p>
+  </div><!-- closing tab 0 -->
   <div id="tabs-1">
   <p>Below is a list of default Dahsboard widgets. <br />
   Note that themes and plugins may add other widgets which Zen Dash cannot remove (yet).</p>
