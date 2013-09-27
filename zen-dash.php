@@ -307,8 +307,19 @@ function zendash () {
   //////////////////////////////////
   ?>
   <div id="tabs-0">
-  <p>Describe here how the plugin works, perhaps add a nice picture of tranquility.</p>
-  </div><!-- closing tab 0 -->
+  <p>Using Zen Dash is really easy:</p>
+  <ol>
+    <li>select a tab at the top</li>
+    <li>toggle the items you (don't) want to see</li>
+    <li>hit Save Changes</li>
+    <li><a href="<?php get_admin_url( 'index.php/page=zendash' ); ?>">refresh</a> your Admin Area</li>
+    </ol>
+  <p>Refreshing is very important. If you don't do this, you may not see the changes such as disappearing menu items or update notifications.</p>
+  <p>If you have any questions or suggestions, feel free to <a href="http://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">leave a comment on this post</a>.</p>
+  <p>&nbsp;</p>
+  <p>Thank you for using Zen Dash!</p>
+  </div>
+  <!-- closing tab 0 -->
   <div id="tabs-1">
   <p>Below is a list of default Dahsboard widgets. <br />
   Note that themes and plugins may add other widgets which Zen Dash cannot remove (yet).</p>
@@ -609,7 +620,7 @@ function zendash_settings_saved () {
 <div class="updated">
   <p><strong>
     Your settings have been saved. <br />
-    Please note: You must REFRESH this page for your changes to take effect.</strong></p>
+    Please note: You must <a href="<?php get_admin_url( 'index.php/page=zendash' ); ?>">REFRESH this page</a> for your changes to take effect.</strong></p>
 </div>
 <?php
 } // end of settings saved

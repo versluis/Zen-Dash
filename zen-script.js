@@ -3,6 +3,7 @@
 
 // jQuery Tabs 
 // since @1.1
+
 jQuery(document).ready(function($) {
 jQuery( "#tabs" ).tabs();
 
