@@ -1,7 +1,7 @@
 === Zen Dash ===
 Contributors: versluis
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=34B76TPRWMWAE
-Tags: dashboard widgets, zen, remove, disable, clutter, update notifications, menu item
+Tags: dashboard widgets, zen, remove, disable, clutter, update notifications, menu item, admin footer
 Requires at least: 3.3
 Tested up to: 3.6.1
 Stable tag: 1.0
@@ -33,9 +33,6 @@ Special thanks to Kushagara Agarwal for the wonderful CSS.
 Simply activate it, then head over to Dashboard - Zen Dash where an admin interface is waiting for you. Use the sliders to activate or deactivate an, then hit "Save Changes".
 You can also choose to enable or disable all widgets at once.
 
-= HELP! I've disabled the Dashboard Menu Item, and now I can't access Zen Dash options to bring it back! =
-You can access the Zen Dash options by hovering over the Admin Toolbar.
-
 = Can I still access removed Menu Items? =
 Yes. Zen Dash only hides them, but if you know the direct URL you can still call it. 
 For example, to access the Dashboard, you can still navigate to yourdomain.com/wp-admin/index.php
@@ -44,9 +41,14 @@ For example, to access the Dashboard, you can still navigate to yourdomain.com/w
 Yes indeed. Zen Dash only hides the notifications at the top, not the fact that an update is available.
 Simply head over to Dashboard - Updates and check if and when you want.
 
-= What's the Link Manager Menu Item? I've never seen it before. =
-The Link Manager was a WordPress default menu item that has been hidden by default since WordPress 3.5.
-You can read more about the Links Manager here: http://codex.wordpress.org/Links_Manager
+= HELP! I've disabled the Dashboard Menu Item, and now I can't access Zen Dash options to bring it back! =
+You can access the Zen Dash options by hovering over the Admin Footer. Please do not disable both.
+
+= HELP! I've disabled BOTH the Dashboard menu AND the Zen Dash footer link... =
+You can still call the Zen Dash menu directly by appending "index.php?page=zendash" to your admin area.
+For example, if your URL in the admin area is "mydomain.com/wp-admin", head over to "mydomain.com/wp-admin/index.php?page=zendash".
+If that doesn't work for you, please disable and uninstall the plugin, then re-install it. This will reset all your options.
+
 
 
 == Screenshots ==
@@ -54,13 +56,15 @@ You can read more about the Links Manager here: http://codex.wordpress.org/Links
 1. disable the default WordPress widgets selectively (under Dashboard - Zen Dash)
 2. disable Menu Items you don't want to see
 3. disable Update Notifications
+4. disable Footer Links
 
 == Changelog ==
 
 = 1.1 =
 added options to remove Menu Items
 added options to remove Update Notifications
-added shortcut to Zen Dash options in Admin Toolbar
+added options to remove Admin Footer Items
+added shortcut to Zen Dash options in Admin Footer
 modified presentation and option tabs
 
 = 1.0 =

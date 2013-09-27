@@ -208,6 +208,25 @@ function zendash () {
 		update_option ('zendash_update3', 'off');	
 		}
 		
+		// footer links
+		if (isset ($_POST[ 'footer1' ])) {
+        update_option ('zendash_footer_wordpress', 'on');
+	} else {
+		update_option ('zendash_footer_wordpress', 'off');	
+		}
+		
+		if (isset ($_POST[ 'footer2' ])) {
+        update_option ('zendash_footer_shortcut', 'on');
+	} else {
+		update_option ('zendash_footer_shortcut', 'off');	
+		}
+		
+		if (isset ($_POST[ 'footer3' ])) {
+        update_option ('zendash_footer_version', 'on');
+	} else {
+		update_option ('zendash_footer_version', 'off');	
+		}
+		
 		// print a "saved" message on screen
 		zendash_settings_saved();
      } // end of save changes
@@ -234,6 +253,18 @@ function zendash () {
 	 // has the user pressed "turn on all updates"?
 	 if (isset($_POST['TurnOnAllUpdates'])) {
 		 zendash_turnon_all_updates();
+		 zendash_settings_saved();
+	 } // end turn on all
+	 
+	 // has the user pressed "turn off all updates"?
+	 if (isset($_POST['TurnOffAllFooter'])) {
+		 zendash_turnoff_all_footer();
+		 zendash_settings_saved();
+	 } // end turn off all
+	 
+	 // has the user pressed "turn on all updates"?
+	 if (isset($_POST['TurnOnAllFooter'])) {
+		 zendash_turnon_all_footer();
 		 zendash_settings_saved();
 	 } // end turn on all
 	 
@@ -275,6 +306,11 @@ function zendash () {
 	$zendash_update2 = get_option( 'zendash_update2' );
 	$zendash_update3 = get_option( 'zendash_update3' );
 	
+	// footer links
+	$zendash_footer_wordpress = get_option( 'zendash_footer_wordpress' );
+	$zendash_footer_shortcut = get_option( 'zendash_footer_shortcut' );
+	$zendash_footer_version = get_option( 'zendash_footer_version' );
+	
 	?>
     
 
@@ -300,6 +336,7 @@ function zendash () {
   <li><a href="#tabs-1">Dashboard Widgets</a></li>
   <li><a href="#tabs-2">Menu Items</a></li>
   <li><a href="#tabs-3">Update Notifications</a></li>
+  <li><a href="#tabs-4">Footer Links</a></li>
   </ul>
   <?php
   //////////////////////////////////
@@ -314,7 +351,7 @@ function zendash () {
     <li>hit Save Changes</li>
     <li><a href="<?php get_admin_url( 'index.php/page=zendash' ); ?>">refresh</a> your Admin Area</li>
     </ol>
-  <p>Refreshing is very important. If you don't do this, you may not see the changes such as disappearing menu items or update notifications.  </p>
+  <p>Refreshing is very important. If you don't do this, you may not see  changes such as disappearing menu items or update notifications.  </p>
   <p>If you have any questions or suggestions, feel free to <a href="http://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">leave a comment on this post</a>.</p>
   <p>&nbsp;</p>
   <p>Thank you for using Zen Dash!</p>
@@ -504,6 +541,43 @@ function zendash () {
         <input type="submit" name="TurnOnAllUpdates" class="button-secondary" value="Turn all notifications ON" />
         </p>
     </div> <!-- closing tab 3 -->
+    
+    <div id="tabs-4">
+        <p>Toggle Footer Notes at the very bottom of your admin screen.        </p>
+        <table width="100%" border="0">
+          <tr>
+            <td width="50%">WordPress Attribution</td>
+            <td width="50%">
+            <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_footer_wordpress; ?>" id="footer1" name="footer1" <?php if ($zendash_footer_wordpress != 'off') echo 'checked' ; ?>/>
+              <label for="footer1"></label>
+            </div></td>
+          </tr>
+          <tr>
+            <td>Zendash Options Link</td>
+            <td>
+            <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_footer_shortcut; ?>" id="footer2" name="footer2" <?php if ($zendash_footer_shortcut != 'off') echo 'checked' ; ?>/>
+              <label for="footer2"></label>
+            </div></td>
+          </tr>
+          <tr>
+            <td>WordPress Version</td>
+            <td><div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_footer_version; ?>" id="footer3" name="footer3" <?php if ($zendash_footer_version != 'off') echo 'checked' ; ?>/>
+              <label for="footer3"></label>
+            </div></td>
+          </tr>
+      </table>
+        <p>&nbsp;</p>
+        <p class="save-button-wrap">
+        <input type="submit" name="SaveChanges" class="button-primary" value="Save Changes" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="TurnOffAllFooter" class="button-secondary" value="Turn all footer notes OFF" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="TurnOnAllFooter" class="button-secondary" value="Turn all footer notes ON" />
+        </p>
+    </div> <!-- closing tab 4 -->
        
 </div> <!-- closing tabs group -->
 </form> <!-- end of form -->
@@ -548,6 +622,7 @@ function zendash_used_before () {
 		zendash_turnon_all_widgets ();
 		zendash_turnon_all_menus ();
 		zendash_turnon_all_updates ();
+		zendash_turnon_all_footer ();
 	}
 		
 	
@@ -611,6 +686,22 @@ function zendash_turnoff_all_updates () {
 	update_option( 'zendash_update1', 'off' );
 	update_option( 'zendash_update2', 'off' );
 	update_option( 'zendash_update3', 'off' );
+}
+
+function zendash_turnon_all_footer () {
+	
+	// turns on all links in the admin footer
+	update_option( 'zendash_footer_wordpress', 'on' );
+	update_option( 'zendash_footer_shortcut', 'on' );
+	update_option( 'zendash_footer_version', 'on' );
+}
+
+function zendash_turnoff_all_footer () {
+	
+	// turns off all links in the admin footer
+	update_option( 'zendash_footer_wordpress', 'off' );
+	// update_option( 'zendash_footer_shortcut', 'off' );
+	update_option( 'zendash_footer_version', 'off' );
 }
 
 function zendash_settings_saved () {
@@ -757,10 +848,37 @@ function zendash_toolbar_shortcut( $wp_admin_bar ) {
 add_action( 'admin_bar_menu', 'zendash_toolbar_shortcut', 999 );
 */
 
-// add admin footer shortcut instead
-function zendash_footer_shortcut () {
-echo 'Thank you for creating with <a href="http://www.wordpress.org" target="_blank">WordPress</a>. Change <a href="' . admin_url( 'index.php/index.php?page=zendash' ) . '">Zen Dash Options</a>';
+// admin footer options
+// as explained here: http://blog.interruptedreality.com/2011/wordpress-change-admin-footer/
+
+function zendash_footer_shortcut ($default) {
+	
+	if (get_option ('zendash_footer_shortcut') == 'on' && get_option ('zendash_footer_wordpress') == 'on' ) {
+		return $default . ' Change <a href="' . admin_url( 'index.php/index.php?page=zendash' ) . '">Zen Dash Options</a>';
+	} 
+	
+	if (get_option ('zendash_footer_shortcut') == 'on' && get_option ('zendash_footer_wordpress') == 'off' ) {
+		return 'Change <a href="' . admin_url( 'index.php/index.php?page=zendash' ) . '">Zen Dash Options</a>';
+	} 
+	
+	if (get_option ('zendash_footer_shortcut') == 'off' && get_option ('zendash_footer_wordpress') == 'on' ) {
+		return $default;
+	} 
+	
+	if (get_option ('zendash_footer_shortcut') == 'off' && get_option ('zendash_footer_wordpress') == 'off' ) {
+		return '';
+	} 
 }
-add_filter('admin_footer_text', 'zendash_footer_shortcut');
+add_filter ('admin_footer_text', 'zendash_footer_shortcut');
+
+// remove WordPress version
+function zendash_footer_version ($default) {
+	if (get_option ('zendash_footer_version') == 'off') {
+		return '';
+	} else {
+		return $default;
+	}
+}
+add_filter ('update_footer', 'zendash_footer_version', 999);
 
 ?>

@@ -47,7 +47,11 @@ if (!defined('WP_UNINSTALL_PLUGIN')) exit();
 	delete_option ('zendash_update3');
 	
 	delete_option ('zendash_version');
+	
+	delete_option ('zendash_footer_wordpress');
 	delete_option ('zendash_footer_shortcut');
+	delete_option ('zendash_footer_version');
+	
 
 // Thanks for using Zen Sash
 // If you'd like to try again someday check out http://wpguru.co.uk where it lives and grows
