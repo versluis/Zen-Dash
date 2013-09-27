@@ -20,7 +20,7 @@ exit();
 // if uninstall is not called from WordPress then exit
 if (!defined('WP_UNINSTALL_PLUGIN')) exit();
 
-// delete all options
+    // delete all options
     delete_option ('zendash_widget1');
 	delete_option ('zendash_widget2');
 	delete_option ('zendash_widget3');
@@ -29,6 +29,25 @@ if (!defined('WP_UNINSTALL_PLUGIN')) exit();
 	delete_option ('zendash_widget6');
 	delete_option ('zendash_widget7');
 	delete_option ('zendash_widget8');
+	
+	// sincec @1.1
+	delete_option ('zendash_widget1');
+	delete_option ('zendash_widget2');
+	delete_option ('zendash_widget3');
+	delete_option ('zendash_widget4');
+	delete_option ('zendash_widget5');
+	delete_option ('zendash_widget6');
+	delete_option ('zendash_widget7');
+	delete_option ('zendash_widget8');
+	delete_option ('zendash_widget9');
+	delete_option ('zendash_widget10');
+	
+	delete_option ('zendash_update1');
+	delete_option ('zendash_update2');
+	delete_option ('zendash_update3');
+	
+	delete_option ('zendash_version');
+	delete_option ('zendash_footer_shortcut');
 
 // Thanks for using Zen Sash
 // If you'd like to try again someday check out http://wpguru.co.uk where it lives and grows

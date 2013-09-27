@@ -314,23 +314,15 @@ function zendash () {
     <li>hit Save Changes</li>
     <li><a href="<?php get_admin_url( 'index.php/page=zendash' ); ?>">refresh</a> your Admin Area</li>
     </ol>
-  <p>Refreshing is very important. If you don't do this, you may not see the changes such as disappearing menu items or update notifications.</p>
+  <p>Refreshing is very important. If you don't do this, you may not see the changes such as disappearing menu items or update notifications.  </p>
   <p>If you have any questions or suggestions, feel free to <a href="http://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">leave a comment on this post</a>.</p>
   <p>&nbsp;</p>
   <p>Thank you for using Zen Dash!</p>
+  </div><!-- closing tab 0 -->
   
-  <?php
-  
-  echo '<p>admin url: ' . admin_url( 'index.php/page=zendash' ) . '</p>';
-  echo '<p>get admin url: ' . get_admin_url( 'index.php/page=zendash' ) . '</p>';
-  
-  ?>
-  
-  </div>
-  <!-- closing tab 0 -->
   <div id="tabs-1">
   <p>Below is a list of default Dahsboard widgets. <br />
-  Note that themes and plugins may add other widgets which Zen Dash cannot remove (yet).</p>
+  Note that themes and plugins may add other widgets which Zen Dash cannot remove.</p>
   <table id="widgets" align="center" width="85%" border="0">
     <tr>
       <td width="50%"><div class="slideThree">
@@ -396,9 +388,8 @@ function zendash () {
 </div> <!-- closing tab 1 -->
 
         <div id="tabs-2">
-          <p>This is a list of all WordPress menu items. Note that some plugins may provide their own menu items which Zen Dash cannot disable.</p>
-          <p>List all 10, with on/off switches</p>
-          <p>add link to this page in footer</p>
+          <p>This is a list of all WordPress menu items. <br />
+          Note that some plugins may provide their own menu items which Zen Dash cannot disable.</p>
           <table width="100%" border="0">
             <tr>
               <td width="25%" class="zen-label">Dashboard</td>
@@ -478,7 +469,7 @@ function zendash () {
 </div> <!-- closing tab 2 -->
         
         <div id="tabs-3">
-        <p>Switch off WordPress update notifications for core, themes and plugins</p>
+        <p>Switch off WordPress update notifications for core, themes and plugins.</p>
         <table width="100%" border="0">
           <tr>
             <td width="50%">WordPress Core Update Alerts</td>
@@ -768,7 +759,7 @@ add_action( 'admin_bar_menu', 'zendash_toolbar_shortcut', 999 );
 
 // add admin footer shortcut instead
 function zendash_footer_shortcut () {
-echo 'Thank you for creating with <a href="http://www.wordpress.org" target="_blank">WordPress</a>. <a href="' . admin_url( 'index.php/index.php?page=zendash' ) . '">Zen Dash Options</a>';
+echo 'Thank you for creating with <a href="http://www.wordpress.org" target="_blank">WordPress</a>. Change <a href="' . admin_url( 'index.php/index.php?page=zendash' ) . '">Zen Dash Options</a>';
 }
 add_filter('admin_footer_text', 'zendash_footer_shortcut');
 
