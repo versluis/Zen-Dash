@@ -752,6 +752,7 @@ if (get_option ('zendash_update3') == 'off') {
 
 // will confuse WordPress - sets all menu items to point to Dashboard
 // needs fixing
+/*
 function zendash_toolbar_shortcut( $wp_admin_bar ) {
 	$zendash_admin_url = admin_url( 'index.php/index.php?page=zendash' );
 	$args = array(
@@ -763,6 +764,7 @@ function zendash_toolbar_shortcut( $wp_admin_bar ) {
 	$wp_admin_bar->add_node( $args );
 }
 add_action( 'admin_bar_menu', 'zendash_toolbar_shortcut', 999 );
+*/
 
 // add admin footer shortcut instead
 function zendash_footer_shortcut () {
