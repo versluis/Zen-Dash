@@ -318,6 +318,14 @@ function zendash () {
   <p>If you have any questions or suggestions, feel free to <a href="http://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">leave a comment on this post</a>.</p>
   <p>&nbsp;</p>
   <p>Thank you for using Zen Dash!</p>
+  
+  <?php
+  
+  echo '<p>admin url: ' . admin_url( 'index.php/page=zendash' ) . '</p>';
+  echo '<p>get admin url: ' . get_admin_url( 'index.php/page=zendash' ) . '</p>';
+  
+  ?>
+  
   </div>
   <!-- closing tab 0 -->
   <div id="tabs-1">
@@ -719,9 +727,13 @@ add_action ('admin_menu', 'zendash_remove_menu_items', 999);
 // suppress update messages, as explained here:
 // http://stackoverflow.com/questions/11821419/wordpress-plugin-notifications/14935077
 $zendash_updates = function ($a) {
-	global $wp_version;
-	return (object) array ('last_checked' => time(), 'version_checked' => $wp_version, );
+	// global $wp_version;
+	// return (object) array ('last_checked' => time(), 'version_checked' => $wp_version, );
+	
+	// or rather:
+	return null;
 };
+
 // core updates
 if (get_option ('zendash_update1') == 'off') {
 	add_filter ('pre_site_transient_update_core', $zendash_updates);
@@ -734,5 +746,17 @@ if (get_option ('zendash_update2') == 'off') {
 if (get_option ('zendash_update3') == 'off') {
 	add_filter ('pre_site_transient_update_plugins', $zendash_updates);
 }
+
+// add Zen Dash shortcut to admin toolbar, as explained here: 
+// http://codex.wordpress.org/Function_Reference/add_node
+
+// will confuse WordPress - sets all menu items to point to Dashboard
+// needs fixing
+
+// add admin footer shortcut instead
+function zendash_footer_shortcut () {
+echo 'Thank you for creating with <a href="http://www.wordpress.org" target="_blank">WordPress</a>. <a href="' . admin_url( 'index.php/index.php?page=zendash' ) . '">Zen Dash Options</a>';
+}
+add_filter('admin_footer_text', 'zendash_footer_shortcut');
 
 ?>
