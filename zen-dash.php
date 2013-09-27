@@ -189,6 +189,25 @@ function zendash () {
 		update_option ('zendash_menu10', 'off');	
 		}
 		
+		// update notifications
+		if (isset ($_POST[ 'update1' ])) {
+        update_option ('zendash_update1', 'on');
+	} else {
+		update_option ('zendash_update1', 'off');	
+		}
+		
+		if (isset ($_POST[ 'update2' ])) {
+        update_option ('zendash_update2', 'on');
+	} else {
+		update_option ('zendash_update2', 'off');	
+		}
+		
+		if (isset ($_POST[ 'update3' ])) {
+        update_option ('zendash_update3', 'on');
+	} else {
+		update_option ('zendash_update3', 'off');	
+		}
+		
 		// print a "saved" message on screen
 		zendash_settings_saved();
      } // end of save changes
@@ -589,9 +608,8 @@ function zendash_settings_saved () {
 	// Put a "settings updated" message on the screen ?>
 <div class="updated">
   <p><strong>
-    Your settings have been saved. Check out your Dashboard!<br />
-    Please note: Menu Item will update after you refersh this page.
-    </strong></p>
+    Your settings have been saved. <br />
+    Please note: You must REFRESH this page for your changes to take effect.</strong></p>
 </div>
 <?php
 } // end of settings saved
@@ -642,6 +660,8 @@ function zendash_remove_menu_items () {
 	
 	///////////////////////////
 	// set or remove menu items
+	// as explaiend here: http://codex.wordpress.org/Function_Reference/remove_menu_page
+	
 	// Dashboard
 	if (get_option ('zendash_menu1') == 'off') {
 	remove_menu_page('index.php');
@@ -684,4 +704,24 @@ function zendash_remove_menu_items () {
 	}
 }
 add_action ('admin_menu', 'zendash_remove_menu_items', 999);
+
+// suppress update messages, as explained here:
+// http://stackoverflow.com/questions/11821419/wordpress-plugin-notifications/14935077
+$zendash_updates = function ($a) {
+	global $wp_version;
+	return (object) array ('last_checked' => time(), 'version_checked' => $wp_version, );
+};
+// core updates
+if (get_option ('zendash_update1') == 'off') {
+	add_filter ('pre_site_transient_update_core', $zendash_updates);
+}
+// theme updates
+if (get_option ('zendash_update2') == 'off') {
+	add_filter ('pre_site_transient_update_themes', $zendash_updates);
+}
+// plugin updates
+if (get_option ('zendash_update3') == 'off') {
+	add_filter ('pre_site_transient_update_plugins', $zendash_updates);
+}
+
 ?>
