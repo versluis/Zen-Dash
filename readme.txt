@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: dashboard widgets, zen, remove, disable, clutter, update notifications, menu item, admin footer
 Requires at least: 3.3
 Tested up to: 3.6.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,9 +12,9 @@ Disable dashboard widgets, menu items and update notifications. Declutter your d
 
 == Description ==
 
-Remove individual widgets from the WordPress Dashboard. Many of my clients find the sheer volume of information a bit intimidating. I wanted to create an easy to use, codeless, great looking solution to toggle the widgets users don't want so see.
+Remove individual widgets from the WordPress Dashboard, hide Menu Items and disable Update Notifications. Many of my clients find the sheer volume of information in the WordPress Admin Area a bit intimidating. I wanted to create an easy to use, codeless, great looking solution to toggle such items on and off, to make it easier for casual users and newcomers alike.
 
-This Plugin was inspired by Joseph Lowery when he kindly explained how to remove dashboard widgets.
+This Plugin was inspired by Joseph Lowery when he kindly explained how to remove dashboard widgets. After getting into coding, I added several other options.
 
 Special thanks to Kushagara Agarwal for the wonderful CSS.
 
@@ -24,7 +24,7 @@ Special thanks to Kushagara Agarwal for the wonderful CSS.
 1. Or: download the ZIP file, then head over to Plugins - Add New - Install, then browse to your file
 1. Or: from Plugins - Add New, search for "zen dash", find this plugin and hit "install"
 1. Then: Activate the plugin through the 'Plugins' menu in WordPress
-1. Under Dashboard - Zen Dash you find an admin interface to toggle your Dashboard Widgets
+1. Under Dashboard - Zen Dash you find an admin interface with tabs. Toggle at leisure.
 
 
 == Frequently Asked Questions ==
@@ -61,11 +61,11 @@ If that doesn't work for you, please disable and uninstall the plugin, then re-i
 == Changelog ==
 
 = 1.1 =
-added options to remove Menu Items
-added options to remove Update Notifications
-added options to remove Admin Footer Items
-added shortcut to Zen Dash options in Admin Footer
-modified presentation and option tabs
+1. added options to remove Menu Items
+1. added options to remove Update Notifications
+1. added options to remove Admin Footer Items
+1. added shortcut to Zen Dash options in Admin Footer
+1. modified presentation and option tabs
 
 = 1.0 =
-Initial Release
+1. Initial Release
