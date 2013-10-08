@@ -808,6 +808,13 @@ add_action ('admin_menu', 'zendash_remove_menu_items', 999);
 
 // suppress update messages, as explained here:
 // http://stackoverflow.com/questions/11821419/wordpress-plugin-notifications/14935077
+
+/* 
+  NOTE
+  Anonymous functions were not supported versions below PHP 5.3
+  change to function, then call it
+  as explained here: http://stackoverflow.com/questions/3657357/unexpected-t-function-error-when-using-function-array-matches
+  */
 $zendash_updates = function ($a) {
 	// global $wp_version;
 	// return (object) array ('last_checked' => time(), 'version_checked' => $wp_version, );
