@@ -61,11 +61,11 @@ If that doesn't work for you, please disable and uninstall the plugin, then re-i
 == Changelog ==
 
 = 1.1 =
-1. added options to remove Menu Items
-1. added options to remove Update Notifications
-1. added options to remove Admin Footer Items
-1. added shortcut to Zen Dash options in Admin Footer
-1. modified presentation and option tabs
+* added options to remove Menu Items
+* added options to remove Update Notifications
+* added options to remove Admin Footer Items
+* added shortcut to Zen Dash options in Admin Footer
+* modified presentation and option tabs
 
 = 1.0 =
-1. Initial Release
+* Initial Release
