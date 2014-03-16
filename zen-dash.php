@@ -3,7 +3,7 @@
  * Plugin Name: Zen Dash
  * Plugin URI: http://wpguru.co.uk/2013/09/introducing-zen-dash/
  * Description: Disable dashbaord widgets, menu items and update notifications. Declutter your admin area with Feng Shui magic. Less is more. 
- * Version: 1.1
+ * Version: 1.2
  * Author: Jay Versluis
  * Author URI: http://wpguru.co.uk
  * License: GPL2
@@ -366,12 +366,12 @@ function zendash () {
           <input type="checkbox" id="right-now" name="widget1" <?php if ($zendash_widget1 == 'on') echo 'checked' ; ?>/>
           <label for="right-now"></label>
         </div>
-        <p class="zen-label">Right Now </p></td>
+        <p class="zen-label">At a Glance</p></td>
       <td width="50%"><div class="slideThree">
           <input type="checkbox" value="<?php $zendash_widget2; ?>" id="quick-press" name="widget2" <?php if ($zendash_widget2 != 'off') echo 'checked' ; ?>/>
           <label for="quick-press"></label>
         </div>
-        <p class="zen-label">Quick Press</p></td>
+        <p class="zen-label">Quick Draft</p></td>
     </tr>
     <tr>
       <td><div class="slideThree">
@@ -438,7 +438,7 @@ function zendash () {
               <td width="25%" class="zen-label">Appearance</td>
               <td width="25%">
               <div class="slideThree">
-              <input type="checkbox" value="<?php $zendash_menu6; ?>" id="menu6" name="menu6" <?php if ($zendash_menu6= 'off') echo 'checked' ; ?>/>
+              <input type="checkbox" value="<?php $zendash_menu6; ?>" id="menu6" name="menu6" <?php if ($zendash_menu6 != 'off') echo 'checked' ; ?>/>
               <label for="menu6"></label>
             </div></td>
             </tr>

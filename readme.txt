@@ -3,7 +3,7 @@ Contributors: versluis
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=34B76TPRWMWAE
 Tags: dashboard widgets, zen, remove, disable, clutter, update notifications, menu item, admin footer
 Requires at least: 3.3
-Tested up to: 3.8
+Tested up to: 3.9
 Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -59,6 +59,10 @@ If that doesn't work for you, please disable and uninstall the plugin, then re-i
 4. disable Footer Links
 
 == Changelog ==
+
+= 1.2 =
+* renamed options under Dashboard Widgets to reflect changes made in WordPress 3.8
+* fixed small bug to reflect the state of the Appearance slider
 
 = 1.1 =
 * added options to remove Menu Items
