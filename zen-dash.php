@@ -819,34 +819,25 @@ add_action ('admin_menu', 'zendash_remove_menu_items', 999);
 
 // suppress update messages, as explained here:
 // http://stackoverflow.com/questions/11821419/wordpress-plugin-notifications/14935077
+// http://wordpress.stackexchange.com/questions/60309/how-to-disable-plugin-update-notification-for-a-specific-plugin-in-multisite
 
-/* 
-  NOTE
-  Anonymous functions were not supported versions below PHP 5.3
-  change to function, then call it
-  as explained here: http://stackoverflow.com/questions/3657357/unexpected-t-function-error-when-using-function-array-matches
-  */
-function zendash_update_helper() {
-	// global $wp_version;
-	// return (object) array ('last_checked' => time(), 'version_checked' => $wp_version, );
-	
-	// or rather:
-	return null;
-};
-$zendash_updates = zendash_update_helper();
 
 // core updates
 if (get_option ('zendash_update1') == 'off') {
-	add_filter ('pre_site_transient_update_core', $zendash_updates);
+	remove_action('load-update-core', 'wp_update_core');
+	add_filter ('pre_site_transient_update_core', '__return_null');
 }
 // theme updates
 if (get_option ('zendash_update2') == 'off') {
-	add_filter ('pre_site_transient_update_themes', $zendash_updates);
+	remove_action('load-update-core.php', 'wp_update_themes');
+	add_filter ('pre_site_transient_update_themes', '__return_null');
 }
 // plugin updates
 if (get_option ('zendash_update3') == 'off') {
-	add_filter ('pre_site_transient_update_plugins', $zendash_updates);
+	remove_action('load-update-core.php', 'wp_update_plugins');
+	add_filter ('pre_site_transient_update_plugins', '__return_null');
 }
+
 
 // add Zen Dash shortcut to admin toolbar, as explained here: 
 // http://codex.wordpress.org/Function_Reference/add_node
