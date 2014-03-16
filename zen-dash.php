@@ -826,7 +826,7 @@ add_action ('admin_menu', 'zendash_remove_menu_items', 999);
   change to function, then call it
   as explained here: http://stackoverflow.com/questions/3657357/unexpected-t-function-error-when-using-function-array-matches
   */
-function zendash_update_helper($a) {
+function zendash_update_helper() {
 	// global $wp_version;
 	// return (object) array ('last_checked' => time(), 'version_checked' => $wp_version, );
 	
