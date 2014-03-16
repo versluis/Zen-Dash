@@ -3,7 +3,7 @@
  * Plugin Name: Zen Dash
  * Plugin URI: http://wpguru.co.uk/2013/09/introducing-zen-dash/
  * Description: Disable dashbaord widgets, menu items and update notifications. Declutter your admin area with Feng Shui magic. Less is more. 
- * Version: 1.2
+ * Version: 1.3
  * Author: Jay Versluis
  * Author URI: http://wpguru.co.uk
  * License: GPL2
@@ -375,44 +375,17 @@ function zendash () {
     </tr>
     <tr>
       <td><div class="slideThree">
-          <input type="checkbox" value="<?php $zendash_widget3; ?>" id="recent-comments" name="widget3" <?php if ($zendash_widget3 != 'off') echo 'checked' ; ?>/>
-          <label for="recent-comments"></label>
+          <input type="checkbox" value="<?php $zendash_widget9; ?>" id="activity" name="widget9" <?php if ($zendash_widget9 != 'off') echo 'checked' ; ?>/>
+          <label for="activity"></label>
         </div>
-        <p class="zen-label">Recent Comments</p></td>
-      <td><div class="slideThree">
-          <input type="checkbox" value="<?php $zendash_widget4; ?>" id="recent-drafts" name="widget4" <?php if ($zendash_widget4 != 'off') echo 'checked' ; ?>/>
-          <label for="recent-drafts"></label>
-        </div>
-        <p class="zen-label">Recent Drafts</p></td>
-    </tr>
-    <tr>
-      <td><div class="slideThree">
-          <input type="checkbox" value="<?php $zendash_widget5; ?>" id="incoming-links" name="widget5" <?php if ($zendash_widget5 != 'off') echo 'checked' ; ?>/>
-          <label for="incoming-links"></label>
-        </div>
-        <p class="zen-label">Incoming Links</p></td>
+        <p class="zen-label">Activity</p></td>
       <td><div class="slideThree">
           <input type="checkbox" value="<?php $zendash_widget6; ?>" id="wordpress-blog" name="widget6" <?php if ($zendash_widget6 != 'off') echo 'checked' ; ?>/>
           <label for="wordpress-blog"></label>
         </div>
-        <p class="zen-label">WordPress Blog</p></td>
+        <p class="zen-label">WordPress News</p></td>
     </tr>
     
-    <tr>
-      <td><div class="slideThree">
-          <input type="checkbox" value="<?php $zendash_widget7; ?>" id="plugins" name="widget7" <?php if ($zendash_widget7 != 'off') echo 'checked' ; ?>/>
-          <label for="plugins"></label>
-        </div>
-        <p class="zen-label">Plugins</p>
-      </td>
-    
-    
-      <td><div class="slideThree">
-          <input type="checkbox" value="<?php $zendash_widget8; ?>" id="other-news" name="widget8" <?php if ($zendash_widget8 != 'off') echo 'checked' ; ?>/>
-          <label for="other-news"></label>
-        </div>
-        <p class="zen-label">Other WordPress News</p></td>
-    </tr>
   </table>
   <p>&nbsp; </p>
   <p class="save-button-wrap">
@@ -754,6 +727,11 @@ function zendash_remove_widgets() {
 	if (get_option ('zendash_widget8') == 'off') {
 	unset ($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
 	}
+	// activity - since @1.3
+	if (get_option ('zendash_widget9') == 'off') {
+	unset ($wp_meta_boxes['dashboard']['side']['core']['dashboard_activity']);
+	}
+	
 }
 add_action ('wp_dashboard_setup', 'zendash_remove_widgets' );
 
