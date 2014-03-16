@@ -24,16 +24,6 @@ exit();
 if (!defined('WP_UNINSTALL_PLUGIN')) exit();
 
     // delete all options
-    delete_option ('zendash_widget1');
-	delete_option ('zendash_widget2');
-	delete_option ('zendash_widget3');
-	delete_option ('zendash_widget4');
-	delete_option ('zendash_widget5');
-	delete_option ('zendash_widget6');
-	delete_option ('zendash_widget7');
-	delete_option ('zendash_widget8');
-	
-	// sincec @1.1
 	delete_option ('zendash_widget1');
 	delete_option ('zendash_widget2');
 	delete_option ('zendash_widget3');
@@ -43,7 +33,6 @@ if (!defined('WP_UNINSTALL_PLUGIN')) exit();
 	delete_option ('zendash_widget7');
 	delete_option ('zendash_widget8');
 	delete_option ('zendash_widget9');
-	delete_option ('zendash_widget10');
 	
 	delete_option ('zendash_update1');
 	delete_option ('zendash_update2');
@@ -54,6 +43,19 @@ if (!defined('WP_UNINSTALL_PLUGIN')) exit();
 	delete_option ('zendash_footer_wordpress');
 	delete_option ('zendash_footer_shortcut');
 	delete_option ('zendash_footer_version');
+	
+	// since @1.3
+	delete_option ('zendash_menu1');
+	delete_option ('zendash_menu2');
+	delete_option ('zendash_menu3');
+	delete_option ('zendash_menu4');
+	delete_option ('zendash_menu5');
+	delete_option ('zendash_menu6');
+	delete_option ('zendash_menu7');
+	delete_option ('zendash_menu8');
+	delete_option ('zendash_menu9');
+	delete_option ('zendash_menu10');
+	delete_option ('zendash_menu11');
 	
 
 // Thanks for using Zen Dash

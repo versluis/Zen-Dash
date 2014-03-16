@@ -128,6 +128,12 @@ function zendash () {
 		update_option ('zendash_widget8', 'off');	
 		}
 		
+		if (isset ($_POST[ 'widget9' ])) {
+        update_option ('zendash_widget9', 'on');
+	} else {
+		update_option ('zendash_widget9', 'off');	
+		}
+		
 		// menu items
 		if (isset ($_POST[ 'menu1' ])) {
         update_option ('zendash_menu1', 'on');
@@ -287,6 +293,7 @@ function zendash () {
 	$zendash_widget6 = get_option( 'zendash_widget6' );
 	$zendash_widget7 = get_option( 'zendash_widget7' );
 	$zendash_widget8 = get_option( 'zendash_widget8' );
+	$zendash_widget9 = get_option( 'zendash_widget9' );
 	
 	// menu items
 	$zendash_menu1 = get_option( 'zendash_menu1' );
@@ -611,7 +618,8 @@ function zendash_turnon_all_widgets () {
 	update_option ( 'zendash_widget5', 'on' );
 	update_option ( 'zendash_widget6', 'on' );
 	update_option ( 'zendash_widget7', 'on' );
-	update_option ( 'zendash_widget8', 'on' );	
+	update_option ( 'zendash_widget8', 'on' );
+	update_option ( 'zendash_widget9', 'on' );		
 	
 } // end of turnon_all
 
@@ -626,6 +634,7 @@ function zendash_turnoff_all_widgets () {
 	update_option ( 'zendash_widget6', 'off' );
 	update_option ( 'zendash_widget7', 'off' );
 	update_option ( 'zendash_widget8', 'off' );	
+	update_option ( 'zendash_widget9', 'off' );	
 
 } // end of turnoff_all
 
@@ -729,7 +738,7 @@ function zendash_remove_widgets() {
 	}
 	// activity - since @1.3
 	if (get_option ('zendash_widget9') == 'off') {
-	unset ($wp_meta_boxes['dashboard']['side']['core']['dashboard_activity']);
+	unset ($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity']);
 	}
 	
 }
