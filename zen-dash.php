@@ -3,7 +3,7 @@
  * Plugin Name: Zen Dash
  * Plugin URI: http://wpguru.co.uk/2013/09/introducing-zen-dash/
  * Description: Disable dashbaord widgets, menu items and update notifications. Declutter your admin area with Feng Shui magic. Less is more. 
- * Version: 1.3
+ * Version: 1.2
  * Author: Jay Versluis
  * Author URI: http://wpguru.co.uk
  * License: GPL2
