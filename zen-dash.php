@@ -3,7 +3,7 @@
  * Plugin Name: Zen Dash
  * Plugin URI: http://wpguru.co.uk/2013/09/introducing-zen-dash/
  * Description: Disable dashbaord widgets, menu items and update notifications. Declutter your admin area with Feng Shui magic. Less is more. 
- * Version: 1.2
+ * Version: 1.3
  * Author: Jay Versluis
  * Author URI: http://wpguru.co.uk
  * License: GPL2
@@ -820,7 +820,6 @@ add_action ('admin_menu', 'zendash_remove_menu_items', 999);
 // suppress update messages, as explained here:
 // http://stackoverflow.com/questions/11821419/wordpress-plugin-notifications/14935077
 // http://wordpress.stackexchange.com/questions/60309/how-to-disable-plugin-update-notification-for-a-specific-plugin-in-multisite
-
 
 // core updates
 if (get_option ('zendash_update1') == 'off') {
