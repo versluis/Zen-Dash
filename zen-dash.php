@@ -3,7 +3,7 @@
  * Plugin Name: Zen Dash
  * Plugin URI: http://wpguru.co.uk/2013/09/introducing-zen-dash/
  * Description: Disable dashbaord widgets, menu items and update notifications. Declutter your admin area with Feng Shui magic. Less is more. 
- * Version: 1.3
+ * Version: 1.4
  * Author: Jay Versluis
  * Author URI: http://wpguru.co.uk
  * License: GPL2
@@ -193,6 +193,12 @@ function zendash () {
         update_option ('zendash_menu10', 'on');
 	} else {
 		update_option ('zendash_menu10', 'off');	
+		}
+		
+		if (isset ($_POST[ 'menu11' ])) {
+        update_option ('zendash_menu11', 'on');
+	} else {
+		update_option ('zendash_menu11', 'off');	
 		}
 		
 		// update notifications
@@ -478,6 +484,18 @@ function zendash () {
               <label for="menu10"></label>
             </div></td>
             </tr>
+            <tr>
+              <td>Jetpack Menu</td>
+              <td>
+              <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_menu11; ?>" id="menu11" name="menu11" <?php if ($zendash_menu11 != 'off') echo 'checked' ; ?>/>
+              <label for="menu11"></label>
+            </div></td>
+              <td></td>
+              <td>
+              
+            </td>
+            </tr>
           </table>
           <p>&nbsp;</p>
           <p class="save-button-wrap">
@@ -628,7 +646,12 @@ function zendash_used_before () {
 		zendash_turnon_all_updates ();
 		zendash_turnon_all_footer ();
 	}
-		
+	
+	if ($zendash_version == '1.1') {
+		// switch on Jetpack menu if upgrading
+		update_option ('zendash_version', '1.4');
+		update_option ('zendash_menu11', 'on');
+	}
 	
 } // end of zendash_used_before
 
@@ -814,8 +837,22 @@ function zendash_remove_menu_items () {
 	if (get_option ('zendash_menu10') == 'off') {
 	remove_menu_page('options-general.php');
 	}
+	// Jetpack
+	if (class_exists( 'Jetpack' ) && get_option ('zendash_menu11') == 'off') {
+	remove_menu_page('jetpack');
+	}
 }
-add_action ('admin_menu', 'zendash_remove_menu_items', 999);
+add_action ('admin_init', 'zendash_remove_menu_items', 999);
+
+/*
+// remove Jetpack Menu
+function zendash_remove_jetpack() {
+	if( class_exists( 'Jetpack' ) && (get_option ('zendash_menu11') == 'off')) {
+		remove_menu_page( 'jetpack' );
+	}
+}
+add_action( 'admin_init', 'zendash_remove_jetpack' );
+*/
 
 // suppress update messages, as explained here:
 // http://stackoverflow.com/questions/11821419/wordpress-plugin-notifications/14935077

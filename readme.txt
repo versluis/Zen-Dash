@@ -1,10 +1,10 @@
 === Zen Dash ===
 Contributors: versluis
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=34B76TPRWMWAE
-Tags: dashboard widgets, zen, remove, disable, clutter, update notifications, menu item, admin footer
+Tags: dashboard widgets, zen, remove, disable, clutter, update notifications, menu item, admin footer, jetpack
 Requires at least: 3.3
 Tested up to: 3.9
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,9 @@ If that doesn't work for you, please disable and uninstall the plugin, then re-i
 4. disable Footer Links
 
 == Changelog ==
+
+= 1.4 =
+* added option to hide Jetpack menu item
 
 = 1.3 =
 * hiding update notifications now works under WordPress 3.8 and 3.9
