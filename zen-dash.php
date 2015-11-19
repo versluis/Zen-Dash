@@ -3,7 +3,7 @@
  * Plugin Name: Zen Dash
  * Plugin URI: http://wpguru.co.uk/2013/09/introducing-zen-dash/
  * Description: Disable dashbaord widgets, menu items and update notifications. Declutter your admin area with Feng Shui magic. Less is more. 
- * Version: 1.4
+ * Version: 1.5
  * Author: Jay Versluis
  * Author URI: http://wpguru.co.uk
  * License: GPL2
@@ -484,6 +484,12 @@ function zendash () {
               <label for="menu10"></label>
             </div></td>
             </tr>
+            
+            <?php
+			// only show the Jetpack option if the plugin is active
+			// @since 1.5
+			if (class_exists ('Jetpack')) {
+			?>
             <tr>
               <td>Jetpack Menu</td>
               <td>
@@ -493,9 +499,13 @@ function zendash () {
             </div></td>
               <td></td>
               <td>
-              
             </td>
             </tr>
+            
+            <?php 
+			} // end Jetpack option 
+			?>
+            
           </table>
           <p>&nbsp;</p>
           <p class="save-button-wrap">
