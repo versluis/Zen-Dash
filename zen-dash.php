@@ -607,7 +607,9 @@ echo plugins_url('images/guru-header-2013.png', __FILE__);
 
 <p><span><!-- Social Buttons -->
 
-
+<!-- YouTube -->
+<script src="https://apis.google.com/js/platform.js"></script>
+<div class="g-ytsubscribe" data-channel="wphosting"></div>
 
 <!-- Google+ 
 <div class="g-follow" data-annotation="bubble" data-height="20" data-href="//plus.google.com/116464794189222694062" data-rel="author"></div>
