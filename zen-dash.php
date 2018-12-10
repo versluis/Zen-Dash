@@ -603,12 +603,15 @@ function zendash () {
 echo plugins_url('images/guru-header-2013.png', __FILE__);
 ?>" width="300"></a>
 </p>
-<p><a href="http://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">Plugin by Jay Versluis</a> | <a href="http://cssdeck.com/labs/css-checkbox-styles" target="_blank">Switches by Kushagara Agarwal</a> | <a href="http://wphosting.tv" target="_blank">WP Hosting</a> | <a href="http://wpguru.co.uk/say-thanks/" target="_blank">Buy me a Coffee</a> ;-)</p>
+<p><a href="https://wpguru.co.uk/2013/09/introducing-zen-dash/" target="_blank">Plugin by Jay Versluis</a> | <a href="https://kushagra.me" target="_blank">Switches by Kushagara Agarwal</a> | <a href="https://patreon.com/versluis" target="_blank">Support me on Patreon</a></p>
 
 <p><span><!-- Social Buttons -->
 
-<!-- Google+ -->
+
+
+<!-- Google+ 
 <div class="g-follow" data-annotation="bubble" data-height="20" data-href="//plus.google.com/116464794189222694062" data-rel="author"></div>
+-->
 
 <!-- Place this tag after the last widget tag. -->
 <script type="text/javascript">
