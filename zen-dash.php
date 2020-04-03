@@ -3,7 +3,7 @@
  * Plugin Name: Zen Dash
  * Plugin URI: http://wpguru.co.uk/2013/09/introducing-zen-dash/
  * Description: Disable dashbaord widgets, menu items and update notifications. Declutter your admin area with Feng Shui magic. Less is more. 
- * Version: 1.6
+ * Version: 1.7
  * Author: Jay Versluis
  * Author URI: https://wpguru.co.uk
  * License: GPL2
@@ -133,6 +133,12 @@ function zendash () {
 	} else {
 		update_option ('zendash_widget9', 'off');	
 		}
+
+		if (isset ($_POST[ 'widget10' ])) {
+			update_option ('zendash_widget10', 'on');
+		} else {
+			update_option ('zendash_widget10', 'off');	
+			}
 		
 		// menu items
 		if (isset ($_POST[ 'menu1' ])) {
@@ -287,7 +293,6 @@ function zendash () {
 	////////////////////////////////////////////////////////
 	
 	// display checkboxes for each widget to be killed
-	
 	// read in database options
 	
 	// widgets
@@ -300,6 +305,7 @@ function zendash () {
 	$zendash_widget7 = get_option( 'zendash_widget7' );
 	$zendash_widget8 = get_option( 'zendash_widget8' );
 	$zendash_widget9 = get_option( 'zendash_widget9' );
+	$zendash_widget10 = get_option( 'zendash_widget10' );
 	
 	// menu items
 	$zendash_menu1 = get_option( 'zendash_menu1' );
@@ -374,6 +380,16 @@ function zendash () {
   <p>Below is a list of default Dahsboard widgets. <br />
   Note that themes and plugins may add other widgets which Zen Dash cannot remove.</p>
   <table id="widgets" align="center" width="85%" border="0">
+   
+  <tr>
+      <td width="50%"><div class="slideThree">
+          <input type="checkbox" id="site-health" name="widget10" <?php if ($zendash_widget10 == 'on') echo 'checked' ; ?>/>
+          <label for="site-health"></label>
+        </div>
+        <p class="zen-label">Site Health</p></td>
+      <td width="50%"></td>
+    </tr>
+   
     <tr>
       <td width="50%"><div class="slideThree">
           <input type="checkbox" id="right-now" name="widget1" <?php if ($zendash_widget1 == 'on') echo 'checked' ; ?>/>
@@ -637,10 +653,34 @@ echo plugins_url('images/guru-header-2013.png', __FILE__);
 
 </div><!-- div wrap close -->
 <?php
+
+// test output
+echo 'Hello';
+$meta_friggin_boxes = get_meta_boxes( 'dashboard', 'normal' ); 
+var_dump ($meta_friggin_boxes);
+echo 'The End';
+
 /////////////////////////////
 } // end of main function
 /////////////////////////////
 
+function get_meta_boxes( $screen = null, $context = 'advanced' ) {
+    global $wp_meta_boxes;
+
+    if ( empty( $screen ) )
+        $screen = get_current_screen();
+    elseif ( is_string( $screen ) )
+        $screen = convert_to_screen( $screen );
+
+    $page = $screen->id;
+
+    echo $wp_meta_boxes[$page][$context];          
+}
+// *****************************************************************
+// we need to figure out what the hell they've renamed those boxes
+// then rewrite all calls to the unset functions
+add_action('wp_footer', 'get_meta_boxes'); 
+// *****************************************************************
 
 // -------------------------
 
@@ -667,6 +707,12 @@ function zendash_used_before () {
 		update_option ('zendash_version', '1.4');
 		update_option ('zendash_menu11', 'on');
 	}
+
+	if ($zendash_version == '1.6') {
+		// switch on Jetpack menu if upgrading
+		update_option ('zendash_version', '1.7');
+		update_option ('zendash_widget10', 'on');
+	}
 	
 } // end of zendash_used_before
 
@@ -681,7 +727,9 @@ function zendash_turnon_all_widgets () {
 	update_option ( 'zendash_widget6', 'on' );
 	update_option ( 'zendash_widget7', 'on' );
 	update_option ( 'zendash_widget8', 'on' );
-	update_option ( 'zendash_widget9', 'on' );		
+	update_option ( 'zendash_widget9', 'on' );
+	update_option ( 'zendash_widget10', 'on' );
+
 	
 } // end of turnon_all
 
@@ -697,6 +745,7 @@ function zendash_turnoff_all_widgets () {
 	update_option ( 'zendash_widget7', 'off' );
 	update_option ( 'zendash_widget8', 'off' );	
 	update_option ( 'zendash_widget9', 'off' );	
+	update_option ( 'zendash_widget10', 'off' );
 
 } // end of turnoff_all
 
@@ -764,8 +813,7 @@ function zendash_remove_widgets() {
 	
 	/////////////////////////////////////////////////////
 	// set or remove all unwanted widgets from Dashboard
-	global$wp_meta_boxes; 
-	
+
 	// right now
 	if (get_option ('zendash_widget1') == 'off') {
 	unset ($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
@@ -797,10 +845,16 @@ function zendash_remove_widgets() {
 	// other news
 	if (get_option ('zendash_widget8') == 'off') {
 	unset ($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+	// remove_meta_box('dashboard_secondary', 'dashboard', 'normal');
 	}
-	// activity - since @1.3
+	// activity - @since 1.3
 	if (get_option ('zendash_widget9') == 'off') {
 	unset ($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity']);
+	}
+	// site health - @since 1.7
+	if (get_option ('zendash_widget10') == 'off') {
+	// unset ($wp_meta_boxes['dashboard']['normal']['dashboard_site_health']);
+	remove_meta_box('dashboard_site_health', 'dashboard', 'normal');
 	}
 	
 }
