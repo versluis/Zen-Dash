@@ -29,10 +29,12 @@
   <li><a href="#tabs-2">Menu Items</a></li>
   <li><a href="#tabs-3">Update Notifications</a></li>
   <li><a href="#tabs-4">Footer Links</a></li>
+  <li><a href="#tabs-5">Plugins</a></li>
   </ul>
   <?php
   //////////////////////////////////
-  // Dashboard Widgets Tab
+  // TAB 0
+  // How It Works
   //////////////////////////////////
   ?>
   <div id="tabs-0">
@@ -49,6 +51,11 @@
   <p>Thank you for using Zen Dash!</p>
   </div><!-- closing tab 0 -->
   
+  <?php 
+  //////////////////////////////////
+  // TAB 1
+  // Dashboard Widgets
+  ////////////////////////////////// ?>
   <div id="tabs-1">
   <p>Below is a list of default Dahsboard widgets. <br />
   Note that themes and plugins may add other widgets which Zen Dash cannot remove.</p>
@@ -89,6 +96,11 @@
   </p>
 </div> <!-- closing tab 1 -->
 
+<?php 
+  //////////////////////////////////
+  // TAB 2
+  // Menu Items
+  ////////////////////////////////// ?>
         <div id="tabs-2">
           <p>This is a list of all WordPress menu items. <br />
           Note that some plugins may provide their own menu items which Zen Dash cannot disable.</p>
@@ -192,6 +204,12 @@
           </p>
 </div> <!-- closing tab 2 -->
         
+    <?php 
+    //////////////////////////////////
+    // TAB 3
+    // Update Notifications
+    ////////////////////////////////// ?>
+
         <div id="tabs-3">
         <p>Switch off WordPress update notifications for core, themes and plugins.</p>
         <table width="100%" border="0">
@@ -229,6 +247,11 @@
         </p>
     </div> <!-- closing tab 3 -->
     
+    <?php 
+    //////////////////////////////////
+    // TAB 4
+    // Footer Links
+    ////////////////////////////////// ?>
     <div id="tabs-4">
         <p>Toggle Footer Notes at the very bottom of your admin screen.        </p>
         <table width="100%" border="0">
@@ -265,7 +288,75 @@
         <input type="submit" name="TurnOnAllFooter" class="button-secondary" value="Turn all footer notes ON" />
         </p>
     </div> <!-- closing tab 4 -->
-       
+
+    <?php 
+    //////////////////////////////////
+    // TAB 5
+    // Footer Links
+    ////////////////////////////////// ?>
+    <div id="tabs-5">
+        <p>Plugins often add a top-level item into the Admin Menu.
+          <br>You can disable supported plugins here.
+        </p> 
+        <table width="100%" border="0">
+
+          <tr>
+            <td width="50%">Blubrry (PowerPress Tab)</td>
+            <td width="50%">
+            <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_footer_wordpress; ?>" id="plugins1" name="plugins1" <?php if ($zendash_plugins_tab1 != 'off') echo 'checked' ; ?>/>
+              <label for="plugins1"></label>
+            </div></td>
+          </tr>
+
+          <tr>
+            <td width="50%">Crowdsignal Forms (Feedack Tab)</td>
+            <td width="50%">
+            <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_footer_wordpress; ?>" id="plugins2" name="plugins2" <?php if ($zendash_plugins_tab2 != 'off') echo 'checked' ; ?>/>
+              <label for="plugins2"></label>
+            </div></td>
+          </tr>
+
+          <tr>
+            <td>Embed Plus (YouTube Free Tab)</td>
+            <td>
+            <div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_footer_shortcut; ?>" id="plugins3" name="plugins3" <?php if ($zendash_plugins_tab3 != 'off') echo 'checked' ; ?>/>
+              <label for="plugins3"></label>
+            </div></td>
+          </tr>
+
+          <tr>
+            <td>WP Dark Mode</td>
+            <td><div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_footer_version; ?>" id="plugins4" name="plugins4" <?php if ($zendash_plugins_tab4 != 'off') echo 'checked' ; ?>/>
+              <label for="plugins4"></label>
+            </div></td>
+          </tr>
+
+          <tr>
+            <td>WPBruiser</td>
+            <td><div class="slideThree">
+              <input type="checkbox" value="<?php $zendash_footer_version; ?>" id="plugins5" name="plugins5" <?php if ($zendash_plugins_tab5 != 'off') echo 'checked' ; ?>/>
+              <label for="plugins5"></label>
+            </div></td>
+          </tr>
+
+      </table>
+
+      <p>&nbsp;</p>
+        <p class="save-button-wrap">
+        <input type="submit" name="SaveChanges" class="button-primary" value="Save Changes" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="TurnOffAllPlugins" class="button-secondary" value="Turn all Plugins Tabs OFF" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="TurnOnAllPlugins" class="button-secondary" value="Turn all Plugin Tabs ON" />
+      </p>
+    </div> <!-- closing tab 5 -->   
+    
+
+
 </div> <!-- closing tabs group -->
 </form> <!-- end of form -->
 <p>&nbsp;</p>
