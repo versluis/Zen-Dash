@@ -40,4 +40,11 @@
 	$zendash_footer_shortcut = get_option( 'zendash_footer_shortcut' );
 	$zendash_footer_version = get_option( 'zendash_footer_version' );
 
+	// Plugin Tabs
+	$zendash_plugins_tab1 = get_option( 'zendash_plugins_tab1' ); // BluBrry
+	$zendash_plugins_tab2 = get_option( 'zendash_plugins_tab2' ); // Crowdsignal
+	$zendash_plugins_tab3 = get_option( 'zendash_plugins_tab3' ); // YouTube
+	$zendash_plugins_tab4 = get_option( 'zendash_plugins_tab4' ); // WP Dark Mode
+	$zendash_plugins_tab5 = get_option( 'zendash_plugins_tab5' ); // WPBruiser
+
 // that's it here.
