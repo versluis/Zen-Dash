@@ -55,7 +55,7 @@ function zendash_remove_menu_items () {
 	
 	////////////////////////////////////////////////////////////////////
 	// set or remove menu items
-	// as explaiend here: http://codex.wordpress.org/Function_Reference/remove_menu_page
+	// as explaiend here: https://developer.wordpress.org/reference/functions/remove_menu_page/
 	
 	// Dashboard
 	if (get_option ('zendash_menu1') == 'off') {
@@ -101,18 +101,39 @@ function zendash_remove_menu_items () {
 	if (class_exists( 'Jetpack' ) && get_option ('zendash_menu11') == 'off') {
 	remove_menu_page('jetpack');
 	}
+
+	// PLUGINS
+	
+	// BluBrry
+	if (get_option ('zendash_plugins_tab1') == 'off') {
+		remove_menu_page('admin.php?page=powerpressadmin_basic');
+		// echo ("PowerPress should be off");
+	}
+	// Crowdsignal
+	if (get_option ('zendash_plugins_tab2') == 'off') {
+		remove_menu_page('admin.php?page=wp-bruiser-settings');
+		// echo ("PowerPress should be off");
+	}
+	// YouTube
+	if (get_option ('zendash_plugins_tab3') == 'off') {
+		remove_menu_page('admin.php?page=youtube-my-preferences');
+		// echo ("PowerPress should be off");
+	}
+	// WP Dark Mode
+	if (get_option ('zendash_plugins_tab4') == 'off') {
+		remove_menu_page('admin.php?page=wp-dark-mose-settings');
+		// echo ("PowerPress should be off");
+	}
+	// WPBruiser
+	if (get_option ('zendash_plugins_tab5') == 'off') {
+		remove_menu_page('admin.php?page=wp-bruiser-settings');
+		// echo ("PowerPress should be off");
+	}
+	// remove_menu_page('admin.php?page=youtube-my-preferences');
 }
 add_action ('admin_init', 'zendash_remove_menu_items', 999);
 
-/*
-// remove Jetpack Menu
-function zendash_remove_jetpack() {
-	if( class_exists( 'Jetpack' ) && (get_option ('zendash_menu11') == 'off')) {
-		remove_menu_page( 'jetpack' );
-	}
-}
-add_action( 'admin_init', 'zendash_remove_jetpack' );
-*/
+
 
 // suppress update messages, as explained here:
 // http://stackoverflow.com/questions/11821419/wordpress-plugin-notifications/14935077
