@@ -167,7 +167,40 @@
         } else {
             update_option ('zendash_footer_version', 'off');	
             }
+
+            // Plugin Tabs
+            if (isset ($_POST[ 'plugins1' ])) {
+                update_option ('zendash_plugins_tab1', 'on');
+            } else {
+                update_option ('zendash_plugins_tab1', 'off');	
+            }
             
+            if (isset ($_POST[ 'plugins2' ])) {
+                update_option ('zendash_plugins_tab2', 'on');
+            } else {
+                update_option ('zendash_plugins_tab2', 'off');	
+            }
+
+            if (isset ($_POST[ 'plugins3' ])) {
+                update_option ('zendash_plugins_tab3', 'on');
+            } else {
+                update_option ('zendash_plugins_tab3', 'off');	
+            }
+
+            if (isset ($_POST[ 'plugins4' ])) {
+                update_option ('zendash_plugins_tab4', 'on');
+            } else {
+                update_option ('zendash_plugins_tab4', 'off');	
+            }
+
+            if (isset ($_POST[ 'plugins5' ])) {
+                update_option ('zendash_plugins_tab5', 'on');
+            } else {
+                update_option ('zendash_plugins_tab5', 'off');	
+            }
+            
+
+
             // print a "saved" message on screen
             zendash_settings_saved();
          } // end of save changes
